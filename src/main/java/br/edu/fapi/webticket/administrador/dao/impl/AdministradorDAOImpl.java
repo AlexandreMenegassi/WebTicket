@@ -1,11 +1,10 @@
-package br.edu.fapi.onlineticket.administrador.dao.impl;
+package br.edu.fapi.webticket.administrador.dao.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.edu.fapi.onlineticket.administrador.dao.AdministradorDAO;
-import br.edu.fapi.onlineticket.administrador.modelo.relatorio.RelatorioLogAcesso;
+import br.edu.fapi.webticket.administrador.dao.AdministradorDAO;
+import br.edu.fapi.webticket.administrador.modelo.relatorio.RelatorioLogAcesso;
 
 public class AdministradorDAOImpl implements AdministradorDAO {
 

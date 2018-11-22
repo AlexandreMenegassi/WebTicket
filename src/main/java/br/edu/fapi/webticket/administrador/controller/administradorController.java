@@ -1,5 +1,5 @@
-package br.edu.fapi.onlineticket.administrador.controller;
+package br.edu.fapi.webticket.administrador.controller;
 
-public class administradorController {
+public class AdministradorController {
 
 }
