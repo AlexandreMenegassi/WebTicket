@@ -1,10 +1,8 @@
 package br.edu.fapi.webticket.usuario.dao.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.fapi.webticket.dao.MySqlConnection;
 import br.edu.fapi.webticket.usuario.dao.UsuarioDAO;
@@ -15,7 +13,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     private Connection connection;
 
     @Override
-	public Usuario fazerLogin(String login, String senha) {
+	public Usuario selecionarUsuario(String login, String senha) {
         Usuario usuario = null;
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement("select * from usuario where Senha = ? and Login = ?",
@@ -26,13 +24,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.first()) {
                 usuario = new Usuario();
-				usuario.setIdUsario(resultSet.getInt("IdUsuario"));
+				usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
+				usuario.setIdUsuarioDetalhe(resultSet.getInt("IdUsuarioDetalhe"));
 				usuario.setLogin(resultSet.getString("Login"));
 				usuario.setSenha(resultSet.getString("Senha"));
 				usuario.setAdmin(resultSet.getBoolean("Admin"));
 				usuario.setCliente(resultSet.getBoolean("Cliente"));
 				usuario.setOperador(resultSet.getBoolean("Operador"));
-				usuario.setStatus(resultSet.getInt("Status"));
 				return usuario;
 			}
 		} catch (SQLException e) {
@@ -83,10 +81,56 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 
     @Override
-    public Boolean editarUsuario(Usuario usario) {
-        //TODO implementar editar usuario
-        return null;
+    public Boolean editarUsuario(Usuario usuario) {
+		try(Connection connection = MySqlConnection.abrirConexao()){
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+			ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + usuario.getIdUsuario());
+
+			if (resultSet.first()) {
+				resultSet.updateInt("IdUsuario", usuario.getIdUsuario());
+				resultSet.updateInt("IdUsuarioDetalhe", usuario.getIdUsuarioDetalhe());
+				resultSet.updateString("Login", usuario.getLogin());
+				resultSet.updateString("Senha", usuario.getSenha());
+				resultSet.updateBoolean("Admin",usuario.isAdmin());
+				resultSet.updateBoolean("Operador",usuario.isOperador());
+				resultSet.updateBoolean("Cliente",usuario.isCliente());
+				resultSet.updateRow();
+				return resultSet.rowUpdated();
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
     }
+
+	@Override
+	public List<Usuario> listarUsuario() {
+		List<Usuario> jogos = new ArrayList<>();
+		try (Connection connection = MySqlConnection.abrirConexao()) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from jogo where idSituacao = 2", Statement.RETURN_GENERATED_KEYS);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setLogin(resultSet.getString("Login"));
+				usuario.setSenha(resultSet.getString("Senha"));
+				usuario.setCliente(resultSet.getBoolean("Cliente"));
+				usuario.setOperador(resultSet.getBoolean("Operador"));
+				usuario.setAdmin(resultSet.getBoolean("Admin"));
+				jogos.add(usuario);
+			}
+
+			return jogos;
+		} catch (SQLException e) {
+			System.out.println("Conexão não estabelecida.");
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
 
 
 }

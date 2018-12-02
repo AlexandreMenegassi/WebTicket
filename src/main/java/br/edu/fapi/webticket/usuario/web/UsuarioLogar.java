@@ -21,13 +21,12 @@ public class UsuarioLogar extends HttpServlet {
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
 
-        usuario = usuarioDAO.fazerLogin(login,senha);
+        usuario = usuarioDAO.selecionarUsuario(login,senha);
 
         if(usuario != null){
             req.getSession().setAttribute("usuario",usuario);
-            //TODO
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
-
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/home.jsp");
+            requestDispatcher.forward(req, resp);
         }
         else{
             //TODO redirecionar para pagina de login inexistente

@@ -3,20 +3,26 @@ package br.edu.fapi.webticket.usuario.modelo;
 public class Usuario {
 	
 	//Atributos
-	protected int idUsario;
+	protected int idUsuario;
+	protected int idUsuarioDetalhe;
 	protected String login;
 	protected String senha;
 	protected boolean admin;
 	protected boolean cliente;
 	protected boolean operador;
-	protected int status;
-	
+
 	//GET SET
-	public int getIdUsario() {
-		return idUsario;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
-	public void setIdUsario(int idUsario) {
-		this.idUsario = idUsario;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	public int getIdUsuarioDetalhe() {
+		return idUsuarioDetalhe;
+	}
+	public void setIdUsuarioDetalhe(int idUsuarioDetalhe) {
+		this.idUsuarioDetalhe = idUsuarioDetalhe;
 	}
 	public String getLogin() {
 		return login;
@@ -48,10 +54,5 @@ public class Usuario {
 	public void setOperador(boolean operador) {
 		this.operador = operador;
 	}
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
+
 }
