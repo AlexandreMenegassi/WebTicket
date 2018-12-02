@@ -1,5 +1,6 @@
 package br.edu.fapi.webticket.administrador.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

@@ -58,16 +58,18 @@
 								<font style="vertical-align: inherit;"><font
 									style="vertical-align: inherit;">login</font></font>
 							</h4>
-							<form>
+
+
+							<form action="UsuarioLogar" method="post">
 								<div class="form-group">
 									<label><font style="vertical-align: inherit;"><font
 											style="vertical-align: inherit;">Endereço de e-mail</font></font></label> <input
-										type="email" class="form-control" placeholder="Email">
+										type="email" class="form-control" placeholder="Email" name="login">
 								</div>
 								<div class="form-group">
 									<label><font style="vertical-align: inherit;"><font
 											style="vertical-align: inherit;">Senha</font></font></label> <input
-										type="password" class="form-control" placeholder="Password">
+										type="password" class="form-control" placeholder="Password" name="senha">
 								</div>
 								<div class="checkbox">
 									<label> <input type="checkbox"><font
