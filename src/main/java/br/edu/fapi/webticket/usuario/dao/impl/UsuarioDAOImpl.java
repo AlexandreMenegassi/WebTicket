@@ -28,7 +28,9 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				usuario.setIdUsario(resultSet.getInt("IdUsario"));
 				usuario.setLogin(resultSet.getString("Login"));
 				usuario.setSenha(resultSet.getString("Senha"));
-				usuario.setNivelAcesso(resultSet.getInt("NivelAcesso"));
+				usuario.setAdmin(resultSet.getBoolean("Admin"));
+				usuario.setCliente(resultSet.getBoolean("Cliente"));
+				usuario.setOperador(resultSet.getBoolean("Operador"));
 				usuario.setStatus(resultSet.getInt("Status"));
 				return usuario;
 			}
@@ -43,11 +45,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	public Boolean criarUsuario(Usuario usuario) {
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"insert into usuario(login, senha, nivelAcesso) values (?,?,?)",
+					"insert into usuario(Login, Senha, Admin, Operador, Cliente) values (?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, usuario.getLogin());
 			preparedStatement.setString(2, usuario.getSenha());
-			preparedStatement.setInt(3, usuario.getNivelAcesso());
+			preparedStatement.setBoolean(3, usuario.isAdmin());
+			preparedStatement.setBoolean(4, usuario.isOperador());
+			preparedStatement.setBoolean(5, usuario.isCliente());
 
 
 			// INSERT, UPDATE OU DELETE (executeUpdate())

@@ -4,6 +4,7 @@ import br.edu.fapi.webticket.usuario.dao.UsuarioDAO;
 import br.edu.fapi.webticket.usuario.dao.impl.UsuarioDAOImpl;
 import br.edu.fapi.webticket.usuario.modelo.Usuario;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +21,27 @@ public class UsuarioLogar extends HttpServlet {
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
 
-        usuarioDAO.fazerLogin(login,senha);
+        usuario = usuarioDAO.fazerLogin(login,senha);
 
-
+        if(usuario != null){
+            req.getSession().setAttribute("usuario",usuario);
+            if(usuario.isAdmin()){
+                //TODO redirecionar para pagina do admin
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
+                requestDispatcher.forward(req, resp);
+            }else if(usuario.isCliente()){
+                //TODO redirecionar para pagina do cliente
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
+                requestDispatcher.forward(req, resp);
+            }else if(usuario.isOperador()){
+                //TODO redirecionar para pagina do operador
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
+                requestDispatcher.forward(req, resp);
+            }
+        }
+        else{
+            //TODO redirecionar para pagina de login inexistente
+            resp.sendRedirect("");
+        }
     }
 }
