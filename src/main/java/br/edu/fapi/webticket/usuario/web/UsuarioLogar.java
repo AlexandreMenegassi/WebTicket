@@ -25,23 +25,13 @@ public class UsuarioLogar extends HttpServlet {
 
         if(usuario != null){
             req.getSession().setAttribute("usuario",usuario);
-            if(usuario.isAdmin()){
-                //TODO redirecionar para pagina do admin
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
-                requestDispatcher.forward(req, resp);
-            }else if(usuario.isCliente()){
-                //TODO redirecionar para pagina do cliente
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
-                requestDispatcher.forward(req, resp);
-            }else if(usuario.isOperador()){
-                //TODO redirecionar para pagina do operador
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
-                requestDispatcher.forward(req, resp);
-            }
+            //TODO
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
+
         }
         else{
             //TODO redirecionar para pagina de login inexistente
-            resp.sendRedirect("");
+            resp.sendRedirect("index.jsp");
         }
     }
 }

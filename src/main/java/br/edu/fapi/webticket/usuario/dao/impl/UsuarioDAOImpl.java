@@ -18,14 +18,15 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	public Usuario fazerLogin(String login, String senha) {
         Usuario usuario = null;
 		try (Connection connection = MySqlConnection.abrirConexao()) {
-			PreparedStatement preparedStatement = connection.prepareStatement("select * from usuario where senha = ?",
-					Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from usuario where Senha = ? and Login = ?",
+			Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, senha);
+			preparedStatement.setString(2, login);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.first()) {
                 usuario = new Usuario();
-				usuario.setIdUsario(resultSet.getInt("IdUsario"));
+				usuario.setIdUsario(resultSet.getInt("IdUsuario"));
 				usuario.setLogin(resultSet.getString("Login"));
 				usuario.setSenha(resultSet.getString("Senha"));
 				usuario.setAdmin(resultSet.getBoolean("Admin"));

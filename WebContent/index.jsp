@@ -52,7 +52,7 @@
 								<form action="UsuarioLogar" method="post">
 									<div class="form-group">
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Endereço de e-mail</font></font></label>
-										<input type="email" name="email"  class="form-control" placeholder="Email">
+										<input type="text" name="login"  class="form-control" placeholder="Email">
 									</div>
 									<div class="form-group">
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Senha</font></font></label>
