@@ -1,6 +1,7 @@
 package br.edu.fapi.webticket.ticket.modelo;
 
-import br.edu.fapi.webticket.cliente.modelo.Cliente;
+
+import br.edu.fapi.webticket.usuario.modelo.UsuarioDetalhe;
 
 import java.util.Date;
 
@@ -11,7 +12,7 @@ public class Ticket {
     private Date dataCriacao;
     private Date dataFechamento;
 
-    private Cliente cliente;
+    private UsuarioDetalhe UsuarioDetalhe;
 
     public int getId() {
         return id;
@@ -53,11 +54,11 @@ public class Ticket {
         this.dataFechamento = dataFechamento;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public UsuarioDetalhe getUsuarioDetalhe() {
+        return UsuarioDetalhe;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setUsuarioDetalhe(UsuarioDetalhe cliente) {
+        this.UsuarioDetalhe = cliente;
     }
 }

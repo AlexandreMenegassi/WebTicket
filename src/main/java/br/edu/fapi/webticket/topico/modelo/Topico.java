@@ -1,6 +1,6 @@
 package br.edu.fapi.webticket.topico.modelo;
 
-import br.edu.fapi.webticket.cliente.modelo.Cliente;
+import br.edu.fapi.webticket.usuario.modelo.UsuarioDetalhe;
 
 public class Topico {
     //Atributos simples
@@ -9,7 +9,7 @@ public class Topico {
     private String descricao;
 
     //Atributos compostos
-    private Cliente cliente;
+    private UsuarioDetalhe usuarioDetalhe;
     private Comentario melhorResposta;
 
     public int getId() {
@@ -20,12 +20,12 @@ public class Topico {
         this.id = id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public UsuarioDetalhe getUsuarioDetalhe() {
+        return usuarioDetalhe;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setUsuarioDetalhe(UsuarioDetalhe UsuarioDetalhe) {
+        this.usuarioDetalhe = UsuarioDetalhe;
     }
 
     public Comentario getMelhorResposta() {

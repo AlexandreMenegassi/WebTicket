@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySqlConnection {
-	public static String url = "jdbc:mysql://localhost:3306/webticket";
+	public static String url = "jdbc:mysql://localhost:3306/webticket?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public static String usuario = "root";
 	public static String senha = "123456";
 

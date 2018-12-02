@@ -2,7 +2,7 @@ package br.edu.fapi.webticket.empresa.modelo;
 
 import java.util.List;
 
-import br.edu.fapi.webticket.cliente.modelo.Cliente;
+import br.edu.fapi.webticket.usuario.modelo.UsuarioDetalhe;
 
 public class Empresa {
 	//Atributos
@@ -12,7 +12,7 @@ public class Empresa {
 	private String cnpj;
 	
 	//Atributos Externos
-	private List<Cliente> funcionarios;
+	private List<UsuarioDetalhe> funcionarios;
 
 	//GET SET
 	public String getNome() {
@@ -39,11 +39,11 @@ public class Empresa {
 		this.cnpj = cnpj;
 	}
 
-	public List<Cliente> getFuncionarios() {
+	public List<UsuarioDetalhe> getFuncionarios() {
 		return funcionarios;
 	}
 
-	public void setFuncionarios(List<Cliente> funcionarios) {
+	public void setFuncionarios(List<UsuarioDetalhe> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 
