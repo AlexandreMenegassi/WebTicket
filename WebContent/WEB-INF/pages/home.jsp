@@ -100,7 +100,7 @@
                                 <li><a href="#">Quantidade de tickets resolvido por operador</a></li>                 
                             </ul>
                         </li>
-                        <li><a href="usuarioControllercontroller?acao=manter"><i class="ti-files"></i> Gerênciar Operadores </a></li>
+                        <li><a href="operadorController?acao=manter"><i class="ti-files"></i> Gerênciar Operadores </a></li>
                         <li><a href="#"><i class="ti-files"></i> Relatórios de Operadores</a></li>
                         <li><a href="#"><i class="ti-files"></i> Relatórios Administrativos</a></li>
 						<li><a href="#"><i class="ti-files"></i> Log de Acesso</a></li>

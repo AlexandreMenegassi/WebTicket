@@ -85,7 +85,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		try(Connection connection = MySqlConnection.abrirConexao()){
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-			ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + usuario.getIdUsuario());
+			ResultSet resultSet = statement.executeQuery("select * from usuario where id = " + usuario.getIdUsuario());
 
 			if (resultSet.first()) {
 				resultSet.updateInt("IdUsuario", usuario.getIdUsuario());
@@ -111,7 +111,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		List<Usuario> jogos = new ArrayList<>();
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from jogo where idSituacao = 2", Statement.RETURN_GENERATED_KEYS);
+					.prepareStatement("select * from usuario", Statement.RETURN_GENERATED_KEYS);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
