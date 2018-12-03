@@ -2,6 +2,7 @@ package br.edu.fapi.webticket.usuario.dao.impl;
 
 import br.edu.fapi.webticket.usuario.modelo.Usuario;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class OperadorDAOImpl extends UsuarioDAOImpl {
@@ -11,7 +12,7 @@ public class OperadorDAOImpl extends UsuarioDAOImpl {
     }
 
     @Override
-    public Boolean criarUsuario(Usuario usuario) {
+    public Boolean criarUsuario(Usuario usuario) throws SQLException {
         usuario.setAdmin(false);
         usuario.setOperador(true);
         usuario.setCliente(false);
@@ -19,7 +20,7 @@ public class OperadorDAOImpl extends UsuarioDAOImpl {
     }
 
     @Override
-    public Boolean deletarUsario(int id) {
+    public Boolean deletarUsario(int id) throws SQLException {
         return super.deletarUsario(id);
     }
 

@@ -41,7 +41,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 
 	@Override
-	public Boolean criarUsuario(Usuario usuario) {
+	public Boolean criarUsuario(Usuario usuario) throws SQLException{
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"insert into usuario(Login, Senha, Admin, Operador, Cliente) values (?,?,?,?,?)",
@@ -66,7 +66,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 
 	@Override
-	public Boolean deletarUsario(int id) {
+	public Boolean deletarUsario(int id) throws SQLException{
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from usuario where IdUsuario = ?");
 			preparedStatement.setInt(1, id);
@@ -116,6 +116,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Usuario usuario = new Usuario();
+				usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
+				usuario.setIdUsuarioDetalhe(resultSet.getInt("IdUsuarioDetalhe"));
 				usuario.setLogin(resultSet.getString("Login"));
 				usuario.setSenha(resultSet.getString("Senha"));
 				usuario.setCliente(resultSet.getBoolean("Cliente"));
