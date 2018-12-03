@@ -35,7 +35,7 @@
         <counts>
           <entry key="MF" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="24" />
+          <entry key="java" value="25" />
           <entry key="jsp" value="5" />
           <entry key="project" value="1" />
           <entry key="sql" value="1" />
@@ -46,7 +46,7 @@
         <counts>
           <entry key="Eclipse" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="24" />
+          <entry key="JAVA" value="25" />
           <entry key="JSP" value="5" />
           <entry key="Manifest" value="1" />
           <entry key="SQL" value="1" />
@@ -58,7 +58,7 @@
           <entry key="java" value="1709" />
           <entry key="jsp" value="280" />
           <entry key="sql" value="106" />
-          <entry key="txt" value="209" />
+          <entry key="txt" value="224" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
@@ -66,7 +66,7 @@
         <counts>
           <entry key="JAVA" value="1709" />
           <entry key="JSP" value="280" />
-          <entry key="PLAIN_TEXT" value="209" />
+          <entry key="PLAIN_TEXT" value="224" />
           <entry key="SQL" value="106" />
           <entry key="XML" value="5" />
         </counts>
@@ -97,18 +97,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/fapi/webticket/usuario/controller/OperadorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/pages/operador/listaroperador.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
@@ -126,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webticket.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-41" />
@@ -158,14 +146,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/fapi/webticket/dao/MySqlConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="67" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="67" />
+            <state relative-caret-position="68">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/src.zip!/java/sql/DriverManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-408">
+              <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -428,7 +425,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543803612469" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543805102767" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -757,7 +754,7 @@
       <updated>1543683218331</updated>
       <workItem from="1543683222747" duration="1772000" />
       <workItem from="1543693336260" duration="1445000" />
-      <workItem from="1543747422624" duration="20806000" />
+      <workItem from="1543747422624" duration="21113000" />
     </task>
     <task id="LOCAL-00001" summary="Corrigindo SQL e começando implementar login">
       <created>1543751546668</created>
@@ -815,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543802807124</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="mysqlconnector">
+      <created>1543804628226</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543804628226</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24023000" />
+    <option name="totallyTimeSpent" value="24330000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,6 +836,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22390318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -880,7 +885,8 @@
     <MESSAGE value="Parte logica do manter operador feita" />
     <MESSAGE value="Listar operadores meio implementado" />
     <MESSAGE value="jstl-1.2.jar" />
-    <option name="LAST_COMMIT_MESSAGE" value="jstl-1.2.jar" />
+    <MESSAGE value="mysqlconnector" />
+    <option name="LAST_COMMIT_MESSAGE" value="mysqlconnector" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1160,16 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/fapi/webticket/dao/MySqlConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="67" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/fapi/webticket/usuario/web/UsuarioLogar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
@@ -1200,6 +1196,23 @@
     <entry file="file://$PROJECT_DIR$/webticket.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-41" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/src.zip!/java/sql/DriverManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/fapi/webticket/dao/MySqlConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
