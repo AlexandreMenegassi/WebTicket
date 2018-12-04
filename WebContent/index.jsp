@@ -68,6 +68,11 @@
 											style="vertical-align: inherit;">entrar</font></font>
 									</button>
 								</form>
+								<div style="text-align: center;">
+									<% if (session.getAttribute("mensagem") != null) {%>
+										<p> <%= session.getAttribute("mensagem") %> </p>
+									<% }%>
+								</div>
 							</div>
 						</div>
 					</div>
