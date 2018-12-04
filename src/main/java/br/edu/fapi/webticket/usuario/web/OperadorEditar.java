@@ -39,14 +39,18 @@ public class OperadorEditar extends HttpServlet {
 
         try {
             operador = operadorDAO.selecionarUsuario(operador.getIdUsuario());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+
             operador.setLogin(req.getParameter("login"));
             operador.setSenha(req.getParameter("senha"));
 
-        if(operadorDAO.editarUsuario(operador)){
+            operadorDAO.editarUsuario(operador);
             resp.sendRedirect("/operadorController?acao=manter");
-        }else{
             //TODO pagina de erro
-        }
         } catch (SQLException e) {
             //TODO tratar execao
             e.printStackTrace();

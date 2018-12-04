@@ -7,27 +7,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperadorDAOImpl extends UsuarioDAOImpl {
-
+public class ClienteDAOImpl extends UsuarioDAOImpl {
     @Override
-    public Boolean criarUsuario(Usuario usuario) throws SQLException {
-        usuario.setAdmin(false);
-        usuario.setOperador(true);
-        usuario.setCliente(false);
-        return super.criarUsuario(usuario);
-    }
-
-    @Override
-    public Boolean editarUsuario(Usuario usuario) throws SQLException{
-        return super.editarUsuario(usuario);
-    }
-
-    @Override
-    public List<Usuario> listarUsuario() throws SQLException{
+    public List<Usuario> listarUsuario() throws SQLException {
         List<Usuario> usuarios = new ArrayList<>();
         try (Connection connection = MySqlConnection.abrirConexao()) {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("select * from usuario where operador = 1", Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement("select * from usuario where cliente = 1", Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -48,5 +34,13 @@ public class OperadorDAOImpl extends UsuarioDAOImpl {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public Boolean criarUsuario(Usuario usuario) throws SQLException {
+        usuario.setAdmin(false);
+        usuario.setOperador(false);
+        usuario.setCliente(true);
+        return super.criarUsuario(usuario);
     }
 }

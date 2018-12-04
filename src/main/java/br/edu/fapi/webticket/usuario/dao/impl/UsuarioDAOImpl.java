@@ -58,6 +58,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				usuario.setAdmin(resultSet.getBoolean("Admin"));
 				usuario.setCliente(resultSet.getBoolean("Cliente"));
 				usuario.setOperador(resultSet.getBoolean("Operador"));
+				connection.close();
 				return usuario;
 			}
 		} catch (SQLException e) {
@@ -115,13 +116,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			ResultSet resultSet = statement.executeQuery("select * from usuario where idUsuario = " + usuario.getIdUsuario());
 
 			if (resultSet.first()) {
-				resultSet.updateInt("IdUsuario", usuario.getIdUsuario());
 				resultSet.updateString("Login", usuario.getLogin());
 				resultSet.updateString("Senha", usuario.getSenha());
 				resultSet.updateBoolean("Admin",usuario.isAdmin());
 				resultSet.updateBoolean("Operador",usuario.isOperador());
 				resultSet.updateBoolean("Cliente",usuario.isCliente());
-				resultSet.updateRow();
 				return resultSet.rowUpdated();
 			}
 

@@ -1,5 +1,6 @@
+<%@ page import="br.edu.fapi.webticket.usuario.modelo.Usuario" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +35,7 @@
         <link href="../../assets/css/style.css" rel="stylesheet">
     </head>
 <body>
+<%Usuario usuario = (Usuario) session.getAttribute("usuario");%>
         <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
             <div class="nano">
                 <div class="nano-content">
@@ -48,12 +50,12 @@
                                 <li><a href="#">Usuário</a></li>                        
                             </ul>
                         </li>
-
                         <li class="label">Usuário</li>
                         <li><a href="#"><i class="ti-files"></i> Novo Tópico </a></li>
                         <li><a href="#"><i class="ti-files"></i> Listar Tópicos</a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder Tópicos</a></li>
-                        
+
+                        <%if(usuario.isCliente()){%>
                         <li class="label">Cliente</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Tickets <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
@@ -65,16 +67,18 @@
                         <li><a href="#"><i class="ti-files"></i> Criar Ticket </a></li>
                         <li><a href="#"><i class="ti-files"></i> Listar Tópicos em Abertos</a></li>
                         <li><a href="#"><i class="ti-files"></i> Contribuir com uma Dúvida</a></li>
-                        
+                        <%}%>
+                        <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Empresa <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                                 <li><a href="#">Gerênciar empresas</a></li>
                                 <li><a href="#">Cadastrar empresas</a></li>
                                 <li><a href="#">Agrupar clientes por empresas</a></li>  
-                                <li><a href="#">Gerênciar clientes</a></li>                      
+
                             </ul>
                         </li>
+                        <li><a href="clienteController?acao=manter">Gerênciar clientes</a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um ticket </a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um tópico</a></li>
 						<li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Relatórios <span class="badge badge-primary">9</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -91,7 +95,8 @@
                                 <li><a href="#">Quantidade de tópicos marcado como resolvido</a></li>              
                             </ul>
                         </li>
-                        
+                        <%}%>
+                        <%if(usuario.isAdmin()){%>
                         <li class="label">Administrador</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Operador Tickets <span class="badge badge-primary">3</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
@@ -104,7 +109,7 @@
                         <li><a href="#"><i class="ti-files"></i> Relatórios de Operadores</a></li>
                         <li><a href="#"><i class="ti-files"></i> Relatórios Administrativos</a></li>
 						<li><a href="#"><i class="ti-files"></i> Log de Acesso</a></li>
-
+                        <%}%>
 
                         <li><a><i class="ti-close"></i> Logout</a></li>
                     </ul>
