@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/UsuarioLogar")
 public class UsuarioLogar extends HttpServlet {
@@ -21,7 +22,11 @@ public class UsuarioLogar extends HttpServlet {
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
 
-        usuario = usuarioDAO.selecionarUsuario(login,senha);
+        try {
+            usuario = usuarioDAO.selecionarUsuario(login,senha);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         if(usuario != null){
             req.getSession().setAttribute("usuario",usuario);

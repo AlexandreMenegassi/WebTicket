@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,11 @@ public class OperadorController extends HttpServlet {
         if("manter".equals(acao)){
             List<Usuario> operadores = new ArrayList<>();
             UsuarioDAO operadorDAO = new OperadorDAOImpl();
-            operadores = operadorDAO.listarUsuario();
+            try {
+                operadores = operadorDAO.listarUsuario();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             req.setAttribute("operadores",operadores);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/operador/listaroperador.jsp");
             requestDispatcher.forward(req, resp);

@@ -6,9 +6,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface UsuarioDAO {
-	Usuario selecionarUsuario(String login, String Senha);
+	Usuario selecionarUsuario(String login, String Senha) throws SQLException;
+	Usuario selecionarUsuario(int id) throws SQLException;
 	Boolean criarUsuario(Usuario usuario) throws SQLException;
 	Boolean deletarUsario(int id) throws SQLException;
-	Boolean editarUsuario(Usuario usario);
-	List<Usuario> listarUsuario();
+	Boolean editarUsuario(Usuario usario) throws SQLException;
+	List<Usuario> listarUsuario() throws SQLException;
 }

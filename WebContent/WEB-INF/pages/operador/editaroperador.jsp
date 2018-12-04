@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Gui_S
-  Date: 03/12/2018
-  Time: 09:32
+  Date: 04/12/2018
+  Time: 02:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Criar operador</title>
+    <title>Editar operador</title>
     <!-- Styles -->
     <link href="../../assets/css/lib/weather-icons.css" rel="stylesheet" />
     <link href="../../assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
@@ -26,16 +26,17 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
-    <form action="/operadorCriar" method="post">
-        <div class="form-group">
-            <label for="inpLogin">Login</label>
-            <input type="text" class="form-control" id="inpLogin" name="login">
-        </div>
-        <div class="form-group">
-            <label for="inpSenha">senha</label>
-            <input type="text" class="form-control" id="inpSenha" name="senha">
-        </div>
-        <input type="submit" value="criar" class="btn btn-default">
-    </form>
+<form action="/operadorEditar" method="post">
+    <div class="form-group">
+        <label for="inpLogin">Login</label>
+        <input type="text" class="form-control" id="inpLogin" name="login" value="${operador.login}">
+    </div>
+    <div class="form-group">
+        <label for="inpSenha">senha</label>
+        <input type="text" class="form-control" id="inpSenha" name="senha" value="${operador.senha}">
+    </div>
+    <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
+    <input type="submit" value="editar" class="btn btn-default">
+</form>
 </body>
 </html>

@@ -53,12 +53,17 @@
                     <c:if test="${operador.cliente}">
                         <td><p>Cliente</p></td>
                     </c:if>
-                    <td><form action="/deletarOperador" method="post">
-                        <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
-                        <input class="btn btn-danger" type="submit" name="idUsuario" value="deletar"/>
-                    </form>
+                    <td>
+                        <form action="/operadorDeletar" method="post">
+                            <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
+                            <input class="btn btn-danger" type="submit" value="deletar"/>
+                        </form>
                     </td>
                     <td>
+                        <form action="/operadorEditar" method="get">
+                            <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
+                            <input class="btn btn-default" type="submit" value="editar"/>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>

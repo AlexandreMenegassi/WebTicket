@@ -13,7 +13,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     private Connection connection;
 
     @Override
-	public Usuario selecionarUsuario(String login, String senha) {
+	public Usuario selecionarUsuario(String login, String senha) throws SQLException {
         Usuario usuario = null;
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement("select * from usuario where Senha = ? and Login = ?",
@@ -24,6 +24,33 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.first()) {
                 usuario = new Usuario();
+				usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
+				usuario.setIdUsuarioDetalhe(resultSet.getInt("IdUsuarioDetalhe"));
+				usuario.setLogin(resultSet.getString("Login"));
+				usuario.setSenha(resultSet.getString("Senha"));
+				usuario.setAdmin(resultSet.getBoolean("Admin"));
+				usuario.setCliente(resultSet.getBoolean("Cliente"));
+				usuario.setOperador(resultSet.getBoolean("Operador"));
+				return usuario;
+			}
+		} catch (SQLException e) {
+			System.out.println("Conexão não estabelecida.");
+			System.out.println(e.getMessage());
+		}
+		return usuario;
+	}
+
+	@Override
+	public Usuario selecionarUsuario(int id) {
+		Usuario usuario = null;
+		try (Connection connection = MySqlConnection.abrirConexao()) {
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from usuario where idUsuario = ?",
+					Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setInt(1, id);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.first()) {
+				usuario = new Usuario();
 				usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
 				usuario.setIdUsuarioDetalhe(resultSet.getInt("IdUsuarioDetalhe"));
 				usuario.setLogin(resultSet.getString("Login"));
@@ -81,15 +108,14 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 
     @Override
-    public Boolean editarUsuario(Usuario usuario) {
+    public Boolean editarUsuario(Usuario usuario) throws SQLException {
 		try(Connection connection = MySqlConnection.abrirConexao()){
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-			ResultSet resultSet = statement.executeQuery("select * from usuario where id = " + usuario.getIdUsuario());
+			ResultSet resultSet = statement.executeQuery("select * from usuario where idUsuario = " + usuario.getIdUsuario());
 
 			if (resultSet.first()) {
 				resultSet.updateInt("IdUsuario", usuario.getIdUsuario());
-				resultSet.updateInt("IdUsuarioDetalhe", usuario.getIdUsuarioDetalhe());
 				resultSet.updateString("Login", usuario.getLogin());
 				resultSet.updateString("Senha", usuario.getSenha());
 				resultSet.updateBoolean("Admin",usuario.isAdmin());
@@ -107,7 +133,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     }
 
 	@Override
-	public List<Usuario> listarUsuario() {
+	public List<Usuario> listarUsuario() throws SQLException {
 		List<Usuario> jogos = new ArrayList<>();
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection
