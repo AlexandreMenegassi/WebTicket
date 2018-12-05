@@ -58,6 +58,9 @@
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Senha</font></font></label>
 										<input type="password" name="senha" class="form-control" placeholder="Password" required>
 									</div>
+									<div style="text-align: right;">
+										<a href="cadastrocliente.jsp"><p>Inscreva-se</p></a>
+									</div>
 									<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><font style="vertical-align: inherit;"><font
 											style="vertical-align: inherit;">entrar</font></font>
 									</button>

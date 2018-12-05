@@ -45,9 +45,9 @@
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         </li>
                         <li class="label">Usuário</li>
-                        <li><a href="#"><i class="ti-files"></i> Novo Tópico </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Listar Tópicos</a></li>
-                        <li><a href="#"><i class="ti-files"></i> Responder Tópicos</a></li>
+                        <li><a href="usuariosController?acao=novoTopico"><i class="ti-files"></i> Novo Tópico </a></li>
+                        <li><a href="usuariosController?acao=listarTopico"><i class="ti-files"></i> Listar Tópicos</a></li>
+                        <li><a href="usuariosController?acao=responderTopico"><i class="ti-files"></i> Responder Tópicos</a></li>
 
                         <%if(usuario.isCliente()){%>
                         <li class="label">Cliente</li>
