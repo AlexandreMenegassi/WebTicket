@@ -23,16 +23,16 @@
         <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
         <!-- Styles -->
-        <link href="../../assets/css/lib/weather-icons.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/font-awesome.min.css" rel="stylesheet">
-        <link href="../../assets/css/lib/themify-icons.css" rel="stylesheet">
-        <link href="../../assets/css/lib/menubar/sidebar.css" rel="stylesheet">
-        <link href="../../assets/css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+        <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+        <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
 
-        <link href="../../assets/css/lib/helper.css" rel="stylesheet">
-        <link href="../../assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/lib/helper.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
 <body>
 <%Usuario usuario = (Usuario) session.getAttribute("usuario");%>
@@ -72,7 +72,7 @@
                         <li class="label">Operador</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Empresa <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="#">Gerênciar empresas</a></li>
+                                <li><a href="empresaController?acao=manter">Gerênciar empresas</a></li>
                                 <li><a href="#">Cadastrar empresas</a></li>
                                 <li><a href="#">Agrupar clientes por empresas</a></li>  
 
