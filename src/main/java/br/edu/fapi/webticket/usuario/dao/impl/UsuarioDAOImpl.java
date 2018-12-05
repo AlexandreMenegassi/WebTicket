@@ -121,8 +121,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				resultSet.updateBoolean("Admin",usuario.isAdmin());
 				resultSet.updateBoolean("Operador",usuario.isOperador());
 				resultSet.updateBoolean("Cliente",usuario.isCliente());
-				resultSet.updateRow();
-				return resultSet.rowUpdated();
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
 			}
 
 		}catch (SQLException e) {

@@ -43,12 +43,6 @@
                     <ul>
                         <li class="label">Menu</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                            <ul>
-                                <li><a href="#">Administrador</a></li>
-                                <li><a href="#">Operador</a></li>
-                                <li><a href="#">Cliente</a></li>
-                                <li><a href="#">Usuário</a></li>                        
-                            </ul>
                         </li>
                         <li class="label">Usuário</li>
                         <li><a href="#"><i class="ti-files"></i> Novo Tópico </a></li>
@@ -71,7 +65,6 @@
                         <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
                         <li><a href="#"><i class="ti-files"></i> Gerênciar Empresas </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Cadastrar Empresas </a></li>
                         <li><a href="#"><i class="ti-files"></i> Agrupar Clientes </a></li>
                         <li><a href="clienteController?acao=manter"><i class="ti-files"></i>Gerênciar Clientes</a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um Ticket </a></li>
@@ -101,7 +94,6 @@
                             </ul>
                         </li>
                         <li><a href="operadorController?acao=manter"><i class="ti-files"></i> Gerênciar Operadores </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Relatórios de Operadores</a></li>
                         <li><a href="#"><i class="ti-files"></i> Relatórios Administrativos</a></li>
 						<li><a href="#"><i class="ti-files"></i> Log de Acesso</a></li>
                         <%}%>
