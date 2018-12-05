@@ -35,6 +35,7 @@ public class UsuarioLogar extends HttpServlet {
         }
         else{
             //TODO redirecionar para pagina de login inexistente
+            req.getSession().setAttribute("mensagem","usuário ou senha inválida");
             resp.sendRedirect("index.jsp");
         }
     }
