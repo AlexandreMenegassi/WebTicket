@@ -23,16 +23,16 @@
         <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
         <!-- Styles -->
-        <link href="../../assets/css/lib/weather-icons.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-        <link href="../../assets/css/lib/font-awesome.min.css" rel="stylesheet">
-        <link href="../../assets/css/lib/themify-icons.css" rel="stylesheet">
-        <link href="../../assets/css/lib/menubar/sidebar.css" rel="stylesheet">
-        <link href="../../assets/css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+        <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+        <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
 
-        <link href="../../assets/css/lib/helper.css" rel="stylesheet">
-        <link href="../../assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/lib/helper.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
 <body>
 <%Usuario usuario = (Usuario) session.getAttribute("usuario");%>
@@ -70,17 +70,12 @@
                         <%}%>
                         <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
-                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Empresa <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                            <ul>
-                                <li><a href="#">Gerênciar empresas</a></li>
-                                <li><a href="#">Cadastrar empresas</a></li>
-                                <li><a href="#">Agrupar clientes por empresas</a></li>  
-
-                            </ul>
-                        </li>
-                        <li><a href="clienteController?acao=manter">Gerênciar clientes</a></li>
-                        <li><a href="#"><i class="ti-files"></i> Responder um ticket </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Responder um tópico</a></li>
+                        <li><a href="#"><i class="ti-files"></i> Gerênciar Empresas </a></li>
+                        <li><a href="#"><i class="ti-files"></i> Cadastrar Empresas </a></li>
+                        <li><a href="#"><i class="ti-files"></i> Agrupar Clientes </a></li>
+                        <li><a href="clienteController?acao=manter"><i class="ti-files"></i>Gerênciar Clientes</a></li>
+                        <li><a href="#"><i class="ti-files"></i> Responder um Ticket </a></li>
+                        <li><a href="#"><i class="ti-files"></i> Responder um Tópico</a></li>
 						<li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Relatórios <span class="badge badge-primary">9</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                                 <li><a href="#">Clientes</a></li>
@@ -111,7 +106,7 @@
 						<li><a href="#"><i class="ti-files"></i> Log de Acesso</a></li>
                         <%}%>
 
-                        <li><a><i class="ti-close"></i> Logout</a></li>
+                        <li><a href="index.jsp"><i class="ti-close"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -153,69 +148,69 @@
             </form>
         </div>
         <!-- jquery vendor -->
-        <script src="../../assets/js/lib/jquery.min.js"></script>
-        <script src="../../assets/js/lib/jquery.nanoscroller.min.js"></script>
+        <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
         <!-- nano scroller -->
-        <script src="../../assets/js/lib/menubar/sidebar.js"></script>
-        <script src="../../assets/js/lib/preloader/pace.min.js"></script>
+        <script src="assets/js/lib/menubar/sidebar.js"></script>
+        <script src="assets/js/lib/preloader/pace.min.js"></script>
         <!-- sidebar -->
-        <script src="../../assets/js/lib/bootstrap.min.js"></script>
+        <script src="assets/js/lib/bootstrap.min.js"></script>
 
         <!-- bootstrap -->
 
-        <script src="../../assets/js/lib/circle-progress/circle-progress.min.js"></script>
-        <script src="../../assets/js/lib/circle-progress/circle-progress-init.js"></script>
+        <script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
+        <script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
 
-        <script src="../../assets/js/lib/morris-chart/raphael-min.js"></script>
-        <script src="../../assets/js/lib/morris-chart/morris.js"></script>
-        <script src="../../assets/js/lib/morris-chart/morris-init.js"></script>
+        <script src="assets/js/lib/morris-chart/raphael-min.js"></script>
+        <script src="assets/js/lib/morris-chart/morris.js"></script>
+        <script src="assets/js/lib/morris-chart/morris-init.js"></script>
 
         <!--  flot-chart js -->
-        <script src="../../assets/js/lib/flot-chart/jquery.flot.js"></script>
-        <script src="../../assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
-        <script src="../../assets/js/lib/flot-chart/flot-chart-init.js"></script>
+        <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+        <script src="assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
+        <script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
         <!-- // flot-chart js -->
 
 
-        <script src="../../assets/js/lib/vector-map/jquery.vmap.js"></script>
+        <script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+        <script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+        <script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.algeria.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.algeria.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.argentina.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.argentina.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.brazil.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.brazil.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.france.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.france.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.germany.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.germany.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.greece.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.greece.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.iran.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.iran.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.iraq.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.iraq.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.russia.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.russia.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.tunisia.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.tunisia.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.europe.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.europe.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/country/jquery.vmap.usa.js"></script>
+        <script src="assets/js/lib/vector-map/country/jquery.vmap.usa.js"></script>
         <!-- scripit init-->
-        <script src="../../assets/js/lib/vector-map/vector.init.js"></script>
+        <script src="assets/js/lib/vector-map/vector.init.js"></script>
 
-        <script src="../../assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-        <script src="../../assets/js/lib/weather/weather-init.js"></script>
-        <script src="../../assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
-        <script src="../../assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-        <script src="../../assets/js/scripts.js"></script>
+        <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
+        <script src="assets/js/lib/weather/weather-init.js"></script>
+        <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
+        <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
         <!-- scripit init-->
 
     </body>
