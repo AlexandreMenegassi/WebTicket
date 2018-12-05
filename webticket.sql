@@ -70,9 +70,6 @@ CREATE TABLE `TopicoComentario` (
     `DataPostagem` date  NOT NULL
 );
 
-ALTER TABLE `Usuario` ADD CONSTRAINT `fk_Usuario_IdUsuarioDetalhe` FOREIGN KEY(`IdUsuarioDetalhe`)
-REFERENCES `UsuarioDetalhe` (`IdUsuarioDetalhe`);
-
 ALTER TABLE `UsuarioDetalhe` ADD CONSTRAINT `fk_UsuarioDetalhe_IdEmpresa` FOREIGN KEY(`IdEmpresa`)
 REFERENCES `Empresa` (`IdEmpresa`);
 
@@ -100,5 +97,9 @@ REFERENCES `Topico` (`IdTopico`);
 ALTER TABLE `TopicoComentario` ADD CONSTRAINT `fk_TopicoComentario_IdUsuario` FOREIGN KEY(`IdUsuario`)
 REFERENCES `Usuario` (`IdUsuario`);
 
-INSERT INTO Usuario (Login,Senha,Admin,Operador,Cliente)
-values ('admin','12345',1,0,0);
+INSERT INTO Usuario (Login,Senha,Admin,Operador,Cliente,IdUsuarioDetalhe)
+values
+('admin','12345',1,0,0,1),
+('operador','12345',0,1,0,1),
+('cliente','12345',0,0,1,1),
+('usuario','12345',0,0,0,1);
