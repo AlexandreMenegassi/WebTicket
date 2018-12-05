@@ -58,7 +58,7 @@
                                 <li><a href="#">Visualizar ou editar ticket</a></li>                        
                             </ul>
                         </li>
-                        <li><a href="#"><i class="ti-files"></i> Criar Ticket </a></li>
+                        <li><a href="ticketController?acao=criar"><i class="ti-files"></i> Criar Ticket </a></li>
                         <li><a href="#"><i class="ti-files"></i> Listar Tópicos em Abertos</a></li>
                         <li><a href="#"><i class="ti-files"></i> Contribuir com uma Dúvida</a></li>
                         <%}%>

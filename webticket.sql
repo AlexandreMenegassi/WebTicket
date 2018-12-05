@@ -40,7 +40,7 @@ CREATE TABLE `Ticket` (
     `Titulo` varchar(255)  NOT NULL ,
     `Descricao` varchar(255)  NOT NULL ,
     `DataCriacao` date  NOT NULL ,
-    `DataFechamento` date  NOT NULL
+    `DataFechamento` date
 );
 
 CREATE TABLE `TicketConversa` (
@@ -66,7 +66,7 @@ CREATE TABLE `TopicoComentario` (
     `IdTopico` int ,
     `IdUsuario` int,
     `Conteudo` varchar(255) NOT NULL ,
-    `Votos` int  NOT NULL ,
+    `Votos` int  ,
     `DataPostagem` date  NOT NULL
 );
 

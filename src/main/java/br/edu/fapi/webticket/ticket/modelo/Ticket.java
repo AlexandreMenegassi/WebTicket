@@ -3,7 +3,9 @@ package br.edu.fapi.webticket.ticket.modelo;
 
 import br.edu.fapi.webticket.usuario.modelo.UsuarioDetalhe;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
+
 
 public class Ticket {
 
@@ -11,8 +13,8 @@ public class Ticket {
     private int idUsuario;
     private String titulo;
     private String descricao;
-    private Date dataCriacao;
-    private Date dataFechamento;
+    private Timestamp dataCriacao;
+    private Timestamp dataFechamento;
 
     public int getIdTicket() {
         return idTicket;
@@ -46,19 +48,19 @@ public class Ticket {
         this.descricao = descricao;
     }
 
-    public Date getDataCriacao() {
+    public Timestamp getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Date dataCriacao) {
+    public void setDataCriacao(Timestamp dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 
-    public Date getDataFechamento() {
+    public Timestamp getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(Date dataFechamento) {
+    public void setDataFechamento(Timestamp dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 }
