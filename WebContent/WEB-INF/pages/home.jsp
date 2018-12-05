@@ -53,48 +53,29 @@
                         <li class="label">Cliente</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Tickets <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="#">Listar todos os tickets resolvidos</a></li>
-                                <li><a href="#">Listar todos os tickets não resolvidos</a></li>
-                                <li><a href="#">Visualizar ou editar ticket</a></li>                        
+                                <li><a href="ticketController?acao=manter">Listar todos os tickets</a></li>
                             </ul>
                         </li>
                         <li><a href="ticketController?acao=criar"><i class="ti-files"></i> Criar Ticket </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Listar Tópicos em Abertos</a></li>
-                        <li><a href="#"><i class="ti-files"></i> Contribuir com uma Dúvida</a></li>
                         <%}%>
                         <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
                         <li><a href="empresaController?acao=manter"><i class="ti-files"></i> Gerênciar Empresas </a></li>
                         <li><a href="clienteController?acao=manter"><i class="ti-files"></i>Gerênciar Clientes</a></li>
-                        <li><a href="#"><i class="ti-files"></i> Responder um Ticket </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Responder um Tópico</a></li>
 						<li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Relatórios <span class="badge badge-primary">9</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="#">Clientes</a></li>
                                 <li><a href="Relatorios/relatorioUsuario.jsp">Usuários no sistema</a></li>
-                                <li><a href="#">Clientes por empresa</a></li>  
-                                <li><a href="#">Quantidade de tickets por clientes</a></li>       
-                                <li><a href="#">Quantidade de tickets por clientes sem respostas</a></li>
-                                <li><a href="#">Quantidade de tickets resolvidos por cliente</a></li>
-                                <li><a href="#">Quantidade de tickets reaberto por cliente</a></li>  
-                                <li><a href="#">Quantidade de tópicos por usuário</a></li>
-                                <li><a href="#">Quantidade de tópicos sem respostas</a></li>
-                                <li><a href="#">Quantidade de tópicos marcado como resolvido</a></li>              
+                            </ul>
+                        </li>
+                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Tickets <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="ticketController?acao=manter">Listar todos os tickets</a></li>
                             </ul>
                         </li>
                         <%}%>
                         <%if(usuario.isAdmin()){%>
                         <li class="label">Administrador</li>
-                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Operador Tickets <span class="badge badge-primary">3</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                            <ul>
-                                <li><a href="#">Editar resposta de um operador</a></li>
-                                <li><a href="#">Data de edição da resposta</a></li> 
-                                <li><a href="#">Quantidade de tickets resolvido por operador</a></li>                 
-                            </ul>
-                        </li>
                         <li><a href="operadorController?acao=manter"><i class="ti-files"></i> Gerênciar Operadores </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Relatórios Administrativos</a></li>
-						<li><a href="#"><i class="ti-files"></i> Log de Acesso</a></li>
                         <%}%>
 
                         <li><a href="index.jsp"><i class="ti-close"></i> Logout</a></li>

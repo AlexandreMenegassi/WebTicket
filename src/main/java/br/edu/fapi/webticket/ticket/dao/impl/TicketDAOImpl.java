@@ -3,16 +3,66 @@ package br.edu.fapi.webticket.ticket.dao.impl;
 import br.edu.fapi.webticket.dao.MySqlConnection;
 import br.edu.fapi.webticket.ticket.dao.TicketDAO;
 import br.edu.fapi.webticket.ticket.modelo.Ticket;
+import br.edu.fapi.webticket.usuario.modelo.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TicketDAOImpl implements TicketDAO {
     @Override
     public List<Ticket> listarTickets() throws SQLException {
+        List<Ticket> tickets = new ArrayList<>();
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("select * from Ticket", Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Ticket ticket = new Ticket();
+                ticket.setIdTicket(resultSet.getInt("IdTicket"));
+                ticket.setIdUsuario(resultSet.getInt("IdUsuario"));
+                ticket.setTitulo(resultSet.getString("Titulo"));
+                ticket.setDescricao(resultSet.getString("Descricao"));
+                ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
+                ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+
+                tickets.add(ticket);
+            }
+
+            return tickets;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public List<Ticket> listarTicketsCliente(int Id) throws SQLException {
+        List<Ticket> tickets = new ArrayList<>();
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("select * from Ticket where IdUsuario = " + Id, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Ticket ticket = new Ticket();
+                ticket.setIdTicket(resultSet.getInt("IdTicket"));
+                ticket.setIdUsuario(resultSet.getInt("IdUsuario"));
+                ticket.setTitulo(resultSet.getString("Titulo"));
+                ticket.setDescricao(resultSet.getString("Descricao"));
+                ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
+                ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+
+                tickets.add(ticket);
+            }
+
+            return tickets;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
         return null;
     }
 

@@ -8,6 +8,7 @@ import java.util.List;
 public interface TicketDAO {
 
     List<Ticket> listarTickets() throws SQLException;
+    List<Ticket> listarTicketsCliente(int Id) throws SQLException;
     Ticket selecionarTicket(int id) throws SQLException;
     Ticket selecionarTicket(String titulo) throws SQLException;
     boolean criarTicket(Ticket ticket) throws SQLException;
