@@ -1,3 +1,6 @@
+<%@ page import="br.edu.fapi.webticket.empresa.modelo.Empresa" %>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Gui_S
@@ -26,16 +29,29 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
+<c:if test="${empty empresas}">
 <form action="/clienteCriar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login">
+        <input type="text" class="form-control" id="inpLogin" name="login" required>
     </div>
     <div class="form-group">
-        <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha">
+        <label for="inpSenha">Senha</label>
+        <input type="text" class="form-control" id="inpSenha" name="senha" required>
+    </div>
+    <div>
+        <label for="ddlEmpresa">Empresa</label>
+        <select name="idEmpresa" id="ddlEmpresa" class="form-control">
+            <c:forEach var="empresa" items="${empresas}">
+                <option value="${empresa.id}"><c:out value="${empresa.nome}"/></option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>
+</c:if>
+<c:if test="${not empty empresas}">
+    <p>Nenhuma empresa cadastrada!</p>
+</c:if>
 </body>
 </html>

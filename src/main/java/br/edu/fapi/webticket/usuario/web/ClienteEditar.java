@@ -1,5 +1,8 @@
 package br.edu.fapi.webticket.usuario.web;
 
+import br.edu.fapi.webticket.empresa.dao.EmpresaDAO;
+import br.edu.fapi.webticket.empresa.dao.impl.EmpresaDAOImpl;
+import br.edu.fapi.webticket.empresa.modelo.Empresa;
 import br.edu.fapi.webticket.usuario.dao.UsuarioDAO;
 import br.edu.fapi.webticket.usuario.dao.impl.ClienteDAOImpl;
 import br.edu.fapi.webticket.usuario.dao.impl.OperadorDAOImpl;
@@ -13,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/clienteEditar")
 public class ClienteEditar extends HttpServlet {
@@ -25,10 +30,16 @@ public class ClienteEditar extends HttpServlet {
         try{
             Usuario cliente = clienteDAO.selecionarUsuario(idOperador);
             req.setAttribute("cliente",cliente);
+
+            List<Empresa> empresas = new ArrayList<>();
+            EmpresaDAO empresaDAO = new EmpresaDAOImpl();
+            empresas = empresaDAO.listarEmpresas();
+            req.setAttribute("empresas",empresas);
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/cliente/editarcliente.jsp");
             requestDispatcher.forward(req, resp);
         }catch (SQLException ex){
-            //TODO tratar excecao editar operador
+            ex.printStackTrace();
         }
     }
 
@@ -50,9 +61,7 @@ public class ClienteEditar extends HttpServlet {
 
             clienteDAO.editarUsuario(cliente);
             resp.sendRedirect("/clienteController?acao=manter");
-            //TODO pagina de erro
         } catch (SQLException e) {
-            //TODO tratar execao
             e.printStackTrace();
         }
     }

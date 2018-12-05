@@ -1,3 +1,5 @@
+<%@ page import="br.edu.fapi.webticket.empresa.modelo.Empresa" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -27,6 +29,7 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
+<c:if test="${empty empresas}">
 <form action="/clienteCriar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
@@ -38,7 +41,7 @@
     </div>
     <div>
         <label for="ddlEmpresa">Empresa</label>
-        <select name="Empresa" id="ddlEmpresa" class="form-control">
+        <select name="idEmpresa" id="ddlEmpresa" class="form-control">
             <c:forEach var="empresa" items="${empresas}">
                 <option value="${empresa.id}"><c:out value="${empresa.nome}"/></option>
             </c:forEach>
@@ -46,5 +49,9 @@
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>
+</c:if>
+<c:if test="${not empty empresas}">
+    <p>Nenhuma empresa cadastrada!</p>
+</c:if>
 </body>
 </html>

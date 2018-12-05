@@ -25,11 +25,11 @@
 <hr>
 <form action="/alterarSenha" method="post">
     <div class="form-group">
-        <label for="inpLogin">Senha:</label>
+        <label for="inpsenha1">Senha:</label>
         <input type="text" class="form-control" required id="inpsenha1" name="senha1" value="">
     </div>
     <div class="form-group">
-        <label for="inpSenha">Confirme sua senha</label>
+        <label for="inpSenha2">Confirme sua senha</label>
         <input type="text" class="form-control" required id="inpSenha2" name="senha2" value="">
     </div>
     <input type="hidden" name="idUsuario" value="${idUsuario}"/>

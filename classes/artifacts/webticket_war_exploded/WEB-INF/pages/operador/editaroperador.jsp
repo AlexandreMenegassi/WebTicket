@@ -29,11 +29,11 @@
 <form action="/operadorEditar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login" value="${operador.login}">
+        <input type="text" class="form-control" id="inpLogin" name="login" value="${operador.login}" required>
     </div>
     <div class="form-group">
         <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha" value="${operador.senha}">
+        <input type="text" class="form-control" id="inpSenha" name="senha" value="${operador.senha}" required>
     </div>
     <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
     <input type="submit" value="editar" class="btn btn-default">

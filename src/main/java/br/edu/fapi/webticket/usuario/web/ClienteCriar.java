@@ -22,6 +22,7 @@ public class ClienteCriar extends HttpServlet {
         Usuario cliente = new Usuario();
         cliente.setLogin(req.getParameter("login"));
         cliente.setSenha(req.getParameter("senha"));
+        cliente.setIdEmpresa(Integer.parseInt(req.getParameter("idEmpresa")));
 
 
         try {

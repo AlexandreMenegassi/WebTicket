@@ -65,15 +65,13 @@
                         <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
                         <li><a href="empresaController?acao=manter"><i class="ti-files"></i> Gerênciar Empresas </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Cadastrar Empresas </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Agrupar Clientes </a></li>
                         <li><a href="clienteController?acao=manter"><i class="ti-files"></i>Gerênciar Clientes</a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um Ticket </a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um Tópico</a></li>
 						<li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Relatórios <span class="badge badge-primary">9</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                                 <li><a href="#">Clientes</a></li>
-                                <li><a href="#">Usuários no sistema</a></li>
+                                <li><a href="Relatorios/relatorioUsuario.jsp">Usuários no sistema</a></li>
                                 <li><a href="#">Clientes por empresa</a></li>  
                                 <li><a href="#">Quantidade de tickets por clientes</a></li>       
                                 <li><a href="#">Quantidade de tickets por clientes sem respostas</a></li>

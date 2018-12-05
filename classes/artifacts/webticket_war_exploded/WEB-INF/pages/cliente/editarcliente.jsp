@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Editar Cliente</title>
@@ -26,17 +27,22 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
+<c:if test="${empresas != null}">
 <form action="/clienteEditar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login" value="${cliente.login}">
+        <input type="text" class="form-control" id="inpLogin" name="login" value="${cliente.login}" required>
     </div>
     <div class="form-group">
         <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha" value="${cliente.senha}">
+        <input type="text" class="form-control" id="inpSenha" name="senha" value="${cliente.senha}" required>
     </div>
     <input type="hidden" name="idUsuario" value="${cliente.idUsuario}"/>
     <input type="submit" value="editar" class="btn btn-default">
 </form>
+</c:if>
+<c:if test="${empresas == null}">
+    <p>Nenhuma empresa cadastrada!</p>
+</c:if>
 </body>
 </html>

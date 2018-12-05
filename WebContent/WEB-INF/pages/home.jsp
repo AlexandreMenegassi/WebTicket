@@ -65,8 +65,6 @@
                         <%if(usuario.isOperador()){%>
                         <li class="label">Operador</li>
                         <li><a href="empresaController?acao=manter"><i class="ti-files"></i> Gerênciar Empresas </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Cadastrar Empresas </a></li>
-                        <li><a href="#"><i class="ti-files"></i> Agrupar Clientes </a></li>
                         <li><a href="clienteController?acao=manter"><i class="ti-files"></i>Gerênciar Clientes</a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um Ticket </a></li>
                         <li><a href="#"><i class="ti-files"></i> Responder um Tópico</a></li>
