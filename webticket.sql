@@ -36,7 +36,7 @@ CREATE TABLE `Usuario` (
 
 CREATE TABLE `Ticket` (
     `IdTicket` int  NOT NULL auto_increment primary key,
-    `IdUsuarioDetalhe` int ,
+    `IdUsuario` int ,
     `Titulo` varchar(255)  NOT NULL ,
     `Descricao` varchar(255)  NOT NULL ,
     `DataCriacao` date  NOT NULL ,
@@ -76,8 +76,8 @@ REFERENCES `UsuarioDetalhe` (`IdUsuarioDetalhe`);
 ALTER TABLE `UsuarioDetalhe` ADD CONSTRAINT `fk_UsuarioDetalhe_IdEmpresa` FOREIGN KEY(`IdEmpresa`)
 REFERENCES `Empresa` (`IdEmpresa`);
 
-ALTER TABLE `Ticket` ADD CONSTRAINT `fk_Ticket_IdUsuarioDetalhe` FOREIGN KEY(`IdUsuarioDetalhe`)
-REFERENCES `UsuarioDetalhe` (`IdUsuarioDetalhe`);
+ALTER TABLE `Ticket` ADD CONSTRAINT `fk_Ticket_IdUsuario` FOREIGN KEY(`IdUsuario`)
+REFERENCES `Usuario` (`IdUsuario`);
 
 ALTER TABLE `TicketConversa` ADD CONSTRAINT `fk_TicketConversa_IdTicket` FOREIGN KEY(`IdTicket`)
 REFERENCES `Ticket` (`IdTicket`);
@@ -99,3 +99,6 @@ REFERENCES `Topico` (`IdTopico`);
 
 ALTER TABLE `TopicoComentario` ADD CONSTRAINT `fk_TopicoComentario_IdUsuario` FOREIGN KEY(`IdUsuario`)
 REFERENCES `Usuario` (`IdUsuario`);
+
+INSERT INTO Usuario (Login,Senha,Admin,Operador,Cliente)
+values ('admin','12345',1,0,0);

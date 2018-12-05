@@ -29,13 +29,13 @@
 <form action="/clienteEditar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login" value="${operador.login}">
+        <input type="text" class="form-control" id="inpLogin" name="login" value="${cliente.login}">
     </div>
     <div class="form-group">
         <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha" value="${operador.senha}">
+        <input type="text" class="form-control" id="inpSenha" name="senha" value="${cliente.senha}">
     </div>
-    <input type="hidden" name="idUsuario" value="${operador.idUsuario}"/>
+    <input type="hidden" name="idUsuario" value="${cliente.idUsuario}"/>
     <input type="submit" value="editar" class="btn btn-default">
 </form>
 </body>
