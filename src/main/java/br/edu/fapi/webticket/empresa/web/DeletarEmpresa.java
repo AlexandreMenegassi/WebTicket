@@ -1,19 +1,30 @@
 package br.edu.fapi.webticket.empresa.web;
 
+import br.edu.fapi.webticket.empresa.dao.EmpresaDAO;
+import br.edu.fapi.webticket.empresa.dao.impl.EmpresaDAOImpl;
+import br.edu.fapi.webticket.usuario.dao.UsuarioDAO;
+import br.edu.fapi.webticket.usuario.dao.impl.ClienteDAOImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
-@WebServlet(name = "DeletarEmpresa")
+@WebServlet(urlPatterns = "/DeletarEmpresa")
 public class DeletarEmpresa extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    }
+        EmpresaDAO empresaDAO = new EmpresaDAOImpl();
+        int idEmpresa = Integer.parseInt(req.getParameter("idEmpresa"));
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+            empresaDAO.deletarEmpresa(idEmpresa);
+            resp.sendRedirect("/empresaController?acao=manter");
+
 
     }
 }

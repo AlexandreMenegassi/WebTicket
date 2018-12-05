@@ -7,7 +7,7 @@ import java.util.List;
 public interface EmpresaDAO {
     List<Empresa> listarEmpresas();
     Empresa selecionarEmpresa(int id);
-    Empresa selecionarEmpresa(String login);
-    boolean detetarEmpresa(int id);
-    boolean editarEmpresa(Empresa cliente);
+    boolean deletarEmpresa(int id);
+    boolean criarEmpresa(Empresa empresa);
+    boolean editarEmpresa(Empresa empresa);
 }

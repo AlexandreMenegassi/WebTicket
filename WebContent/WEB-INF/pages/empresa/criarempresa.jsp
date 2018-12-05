@@ -19,14 +19,18 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
-<form action="/criarEmpresa" method="post">
+<form action="/CriarEmpresa" method="post">
     <div class="form-group">
-        <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login">
+        <label for="inpNome">Nome</label>
+        <input type="text" class="form-control" id="inpNome" name="Nome">
     </div>
     <div class="form-group">
-        <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha">
+        <label for="inpRazaoSocial">Razao Social</label>
+        <input type="text" class="form-control" id="inpRazaoSocial" name="RazaoSocial">
+    </div>
+    <div class="form-group">
+        <label for="inpCNPJ">CNPJ</label>
+        <input type="text" class="form-control" id="inpCNPJ" name="CNPJ">
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>
