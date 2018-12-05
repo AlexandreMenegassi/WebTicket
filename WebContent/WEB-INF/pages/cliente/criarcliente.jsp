@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Gui_S
@@ -29,11 +30,19 @@
 <form action="/clienteCriar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
-        <input type="text" class="form-control" id="inpLogin" name="login">
+        <input type="text" class="form-control" id="inpLogin" name="login" required>
     </div>
     <div class="form-group">
-        <label for="inpSenha">senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha">
+        <label for="inpSenha">Senha</label>
+        <input type="text" class="form-control" id="inpSenha" name="senha" required>
+    </div>
+    <div>
+        <label for="ddlEmpresa">Empresa</label>
+        <select name="Empresa" id="ddlEmpresa" class="form-control">
+            <c:forEach var="empresa" items="${empresas}">
+                <option value="${empresa.id}"><c:out value="${empresa.nome}"/></option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>

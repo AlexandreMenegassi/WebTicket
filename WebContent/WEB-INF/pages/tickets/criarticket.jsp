@@ -33,11 +33,11 @@
 <form action="/ticketCriar" method="post">
     <div class="form-group">
         <label for="inpTitulo">Titulo</label>
-        <input type="text" class="form-control" id="inpTitulo" name="titulo">
+        <input type="text" class="form-control" id="inpTitulo" name="titulo" required>
     </div>
     <div class="form-group">
         <label for="inpDescricao">Descricao</label>
-        <textarea class="form-control" rows="4" cols="50" id="inpDescricao" name="descricao"></textarea>
+        <textarea class="form-control" rows="4" cols="50" id="inpDescricao" name="descricao" required></textarea>
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>

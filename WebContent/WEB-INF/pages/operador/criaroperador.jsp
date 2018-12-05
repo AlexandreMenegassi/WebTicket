@@ -29,11 +29,11 @@
     <form action="/operadorCriar" method="post">
         <div class="form-group">
             <label for="inpLogin">Login</label>
-            <input type="text" class="form-control" id="inpLogin" name="login">
+            <input type="text" class="form-control" id="inpLogin" name="login" required>
         </div>
         <div class="form-group">
             <label for="inpSenha">senha</label>
-            <input type="text" class="form-control" id="inpSenha" name="senha">
+            <input type="text" class="form-control" id="inpSenha" name="senha" required>
         </div>
         <input type="submit" value="criar" class="btn btn-default">
     </form>

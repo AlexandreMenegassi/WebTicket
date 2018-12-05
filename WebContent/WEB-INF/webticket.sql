@@ -24,6 +24,7 @@ CREATE TABLE `Empresa` (
 CREATE TABLE `Usuario` (
     `IdUsuario` int  NOT NULL auto_increment primary key,
     IdUsuarioDetalhe int,
+    IdEmpresa int,
     `Login` varchar(255)  NOT NULL ,
     `Senha` varchar(255)  NOT NULL ,
     `Admin` bit NOT NULL ,
@@ -69,6 +70,9 @@ CREATE TABLE `TopicoComentario` (
     `Votos` int  ,
     `DataPostagem` date  NOT NULL
 );
+
+ALTER TABLE `Usuario` ADD CONSTRAINT `fk_Usuario_IdEmpresa` FOREIGN KEY(`IdEmpresa`)
+REFERENCES `Empresa` (`IdEmpresa`);
 
 ALTER TABLE `UsuarioDetalhe` ADD CONSTRAINT `fk_UsuarioDetalhe_IdEmpresa` FOREIGN KEY(`IdEmpresa`)
 REFERENCES `Empresa` (`IdEmpresa`);
