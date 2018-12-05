@@ -52,17 +52,11 @@
 								<form action="UsuarioLogar" method="post">
 									<div class="form-group">
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Endereço de e-mail</font></font></label>
-										<input type="text" name="login"  class="form-control" placeholder="Email">
+										<input type="text" name="login"  class="form-control" placeholder="Email" required>
 									</div>
 									<div class="form-group">
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Senha</font></font></label>
-										<input type="password" name="senha" class="form-control" placeholder="Password">
-									</div>
-									<div class="checkbox">
-										<label><input type="checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lembre-me </font></font></label> <font
-											style="vertical-align: inherit;"><label	class="pull-right"><a href="#"><font style="vertical-align: inherit;">Esqueceu a senha?</font></a></label></font><label
-											class="pull-right"> <a href="#"><font style="vertical-align: inherit;"></font></a>
-										</label>
+										<input type="password" name="senha" class="form-control" placeholder="Password" required>
 									</div>
 									<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><font style="vertical-align: inherit;"><font
 											style="vertical-align: inherit;">entrar</font></font>
