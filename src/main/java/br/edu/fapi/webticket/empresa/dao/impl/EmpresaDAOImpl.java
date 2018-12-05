@@ -52,19 +52,19 @@ public class EmpresaDAOImpl implements EmpresaDAO {
 
     public boolean criarEmpresa(Empresa empresa){
         try (Connection connection = MySqlConnection.abrirConexao()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO empresa ( Nome, RazaoSocial, CNPJ) values(?,?,?)");
-            preparedStatement.setString(1, empresa.getNome());
-            preparedStatement.setString(2, empresa.getRazaoSocial());
-            preparedStatement.setString(3, empresa.getCnpj());
-            preparedStatement.executeUpdate();
-            return true;
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO empresa ( Nome, RazaoSocial, CNPJ) values(?,?,?)");
+        preparedStatement.setString(1, empresa.getNome());
+        preparedStatement.setString(2, empresa.getRazaoSocial());
+        preparedStatement.setString(3, empresa.getCnpj());
+        preparedStatement.executeUpdate();
+        return true;
 
-        } catch (SQLException e) {
-            System.out.println("Conexão não estabelecida.");
-            System.out.println(e);
-            return false;
-        }
+    } catch (SQLException e) {
+        System.out.println("Conexão não estabelecida.");
+        System.out.println(e);
+        return false;
     }
+}
     @Override
     public boolean editarEmpresa(Empresa empresa) {
         try(Connection connection = MySqlConnection.abrirConexao()){
