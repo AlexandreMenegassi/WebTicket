@@ -22,15 +22,15 @@
 <form action="/CriarEmpresa" method="post">
     <div class="form-group">
         <label for="inpNome">Nome</label>
-        <input type="text" class="form-control" id="inpNome" name="Nome">
+        <input type="text" class="form-control" id="inpNome" name="Nome" required>
     </div>
     <div class="form-group">
         <label for="inpRazaoSocial">Razao Social</label>
-        <input type="text" class="form-control" id="inpRazaoSocial" name="RazaoSocial">
+        <input type="text" class="form-control" id="inpRazaoSocial" name="RazaoSocial" required>
     </div>
     <div class="form-group">
         <label for="inpCNPJ">CNPJ</label>
-        <input type="text" class="form-control" id="inpCNPJ" name="CNPJ">
+        <input type="text" class="form-control" id="inpCNPJ" name="CNPJ" required>
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>

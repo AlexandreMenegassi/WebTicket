@@ -28,16 +28,16 @@
 <hr>
 <form action="/EditarEmpresa" method="post">
     <div class="form-group">
-        <label for="inpLogin">Nome</label>
-        <input type="text" class="form-control" id="inpNome" name="Nome" value="${empresa.nome}">
+        <label for="inpNome">Nome</label>
+        <input type="text" class="form-control" id="inpNome" name="Nome" value="${empresa.nome}" required>
     </div>
     <div class="form-group">
-        <label for="inpSenha">Razão Social</label>
-        <input type="text" class="form-control" id="inpRazaoSocial" name="RazaoSocial" value="${empresa.razaoSocial}">
+        <label for="inpRazaoSocial">Razão Social</label>
+        <input type="text" class="form-control" id="inpRazaoSocial" name="RazaoSocial" value="${empresa.razaoSocial}" required>
     </div>
     <div class="form-group">
-        <label for="inpSenha">CNPJ</label>
-        <input type="text" class="form-control" id="inpCNPJ" name="CNPJ" value="${empresa.cnpj}">
+        <label for="inpCNPJ">CNPJ</label>
+        <input type="text" class="form-control" id="inpCNPJ" name="CNPJ" value="${empresa.cnpj}" required>
     </div>
 
     <input type="hidden" name="idEmpresa" value="${empresa.id}"/>

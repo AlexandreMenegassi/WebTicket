@@ -5,6 +5,7 @@ public class Usuario {
 	//Atributos
 	protected int idUsuario;
 	protected int idUsuarioDetalhe;
+	protected int idEmpresa;
 	protected String login;
 	protected String senha;
 	protected boolean admin;
@@ -54,5 +55,10 @@ public class Usuario {
 	public void setOperador(boolean operador) {
 		this.operador = operador;
 	}
-
+	public int getIdEmpresa() {
+		return idEmpresa;
+	}
+	public void setIdEmpresa(int idEmpresa) {
+		this.idEmpresa = idEmpresa;
+	}
 }

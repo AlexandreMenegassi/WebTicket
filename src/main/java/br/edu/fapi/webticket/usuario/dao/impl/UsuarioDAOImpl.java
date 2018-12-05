@@ -72,13 +72,14 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	public Boolean criarUsuario(Usuario usuario) throws SQLException{
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"insert into usuario(Login, Senha, Admin, Operador, Cliente) values (?,?,?,?,?)",
+					"insert into usuario(Login, Senha, Admin, Operador, Cliente, IdEmpresa) values (?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, usuario.getLogin());
 			preparedStatement.setString(2, usuario.getSenha());
 			preparedStatement.setBoolean(3, usuario.isAdmin());
 			preparedStatement.setBoolean(4, usuario.isOperador());
 			preparedStatement.setBoolean(5, usuario.isCliente());
+			preparedStatement.setInt(6, usuario.getIdUsuarioDetalhe());
 
 
 			// INSERT, UPDATE OU DELETE (executeUpdate())
@@ -118,11 +119,12 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			if (resultSet.first()) {
 				resultSet.updateString("Login", usuario.getLogin());
 				resultSet.updateString("Senha", usuario.getSenha());
+				resultSet.updateInt("IdUsuarioDetalhe",usuario.getIdUsuarioDetalhe());
 				resultSet.updateBoolean("Admin",usuario.isAdmin());
 				resultSet.updateBoolean("Operador",usuario.isOperador());
 				resultSet.updateBoolean("Cliente",usuario.isCliente());
-				resultSet.updateRow();
-				return resultSet.rowUpdated();
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
 			}
 
 		}catch (SQLException e) {
@@ -159,6 +161,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		}
 		return null;
 	}
+
 
 
 }

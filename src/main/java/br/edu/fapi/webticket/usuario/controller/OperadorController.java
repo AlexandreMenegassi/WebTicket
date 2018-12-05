@@ -35,6 +35,9 @@ public class OperadorController extends HttpServlet {
         }else if("criar".equals(acao)){
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/operador/criaroperador.jsp");
             requestDispatcher.forward(req, resp);
+        }else if("home".equals(acao)){
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/home.jsp");
+            requestDispatcher.forward(req, resp);
         }
     }
 }

@@ -1,5 +1,8 @@
 package br.edu.fapi.webticket.usuario.controller;
 
+import br.edu.fapi.webticket.empresa.dao.EmpresaDAO;
+import br.edu.fapi.webticket.empresa.dao.impl.EmpresaDAOImpl;
+import br.edu.fapi.webticket.empresa.modelo.Empresa;
 import br.edu.fapi.webticket.usuario.dao.UsuarioDAO;
 import br.edu.fapi.webticket.usuario.dao.impl.ClienteDAOImpl;
 import br.edu.fapi.webticket.usuario.dao.impl.OperadorDAOImpl;
@@ -33,6 +36,12 @@ public class ClienteController extends HttpServlet {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/cliente/listarcliente.jsp");
             requestDispatcher.forward(req, resp);
         }else if("criar".equals(acao)){
+
+            List<Empresa> empresas = new ArrayList<>();
+            EmpresaDAO empresaDAO = new EmpresaDAOImpl();
+            empresas = empresaDAO.listarEmpresas();
+            req.setAttribute("empresas",empresas);
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/cliente/criarcliente.jsp");
             requestDispatcher.forward(req, resp);
         }
