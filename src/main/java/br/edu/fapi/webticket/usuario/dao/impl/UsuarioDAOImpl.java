@@ -72,7 +72,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	public Boolean criarUsuario(Usuario usuario) throws SQLException{
 		try (Connection connection = MySqlConnection.abrirConexao()) {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"insert into usuario(Login, Senha, Admin, Operador, Cliente, IdEmpresa) values (?,?,?,?,?,?)",
+					"insert into usuario(Login, Senha, Admin, Operador, Cliente,IdUsuarioDetalhe, IdEmpresa) values (?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, usuario.getLogin());
 			preparedStatement.setString(2, usuario.getSenha());
@@ -80,6 +80,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			preparedStatement.setBoolean(4, usuario.isOperador());
 			preparedStatement.setBoolean(5, usuario.isCliente());
 			preparedStatement.setInt(6, usuario.getIdUsuarioDetalhe());
+			preparedStatement.setInt(7, usuario.getIdEmpresa());
 
 
 			// INSERT, UPDATE OU DELETE (executeUpdate())

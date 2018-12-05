@@ -21,7 +21,8 @@ public class ClienteCriar extends HttpServlet {
         UsuarioDAO clienteDAO = new ClienteDAOImpl();
         Usuario cliente = new Usuario();
         cliente.setLogin(req.getParameter("login"));
-        cliente.setSenha(req.getParameter("senha"));
+        cliente.setSenha("12345");
+        cliente.setIdUsuarioDetalhe(0);
         cliente.setIdEmpresa(Integer.parseInt(req.getParameter("idEmpresa")));
 
 

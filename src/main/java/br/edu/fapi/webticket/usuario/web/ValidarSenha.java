@@ -29,7 +29,8 @@ public class ValidarSenha extends HttpServlet {
                 usuario.setSenha(senha1);
                 usuario.setIdUsuarioDetalhe(i);
                 usuarioDAO.editarUsuario(usuario);
-                resp.sendRedirect("/operadorController?acao=home");
+                req.getSession().setAttribute("usuario",usuario);
+                resp.sendRedirect("/controller?acao=home");
 
             } catch (SQLException e) {
                 e.printStackTrace();

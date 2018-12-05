@@ -29,15 +29,11 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
-<c:if test="${empty empresas}">
+<c:if test="${not empty empresas}">
 <form action="/clienteCriar" method="post">
     <div class="form-group">
         <label for="inpLogin">Login</label>
         <input type="text" class="form-control" id="inpLogin" name="login" required>
-    </div>
-    <div class="form-group">
-        <label for="inpSenha">Senha</label>
-        <input type="text" class="form-control" id="inpSenha" name="senha" required>
     </div>
     <div>
         <label for="ddlEmpresa">Empresa</label>
@@ -46,11 +42,14 @@
                 <option value="${empresa.id}"><c:out value="${empresa.nome}"/></option>
             </c:forEach>
         </select>
+        <div class="form-group">
+            <label >A senha 12345 será gerada para este cliente</label>
+        </div><br>
     </div>
     <input type="submit" value="criar" class="btn btn-default">
 </form>
 </c:if>
-<c:if test="${not empty empresas}">
+<c:if test="${empty empresas}">
     <p>Nenhuma empresa cadastrada!</p>
 </c:if>
 </body>
