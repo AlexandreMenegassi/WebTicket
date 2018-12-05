@@ -29,9 +29,18 @@ public class UsuarioLogar extends HttpServlet {
         }
 
         if(usuario != null){
-            req.getSession().setAttribute("usuario",usuario);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/home.jsp");
-            requestDispatcher.forward(req, resp);
+            int detalheUser = usuario.getIdUsuarioDetalhe();
+            if(detalheUser == 0){
+                req.setAttribute("idUsuario",usuario.getIdUsuario());
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/usuarios/alterarSenha.jsp");
+                requestDispatcher.forward(req, resp);
+            }else{
+
+                req.getSession().setAttribute("usuario",usuario);
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/home.jsp");
+                requestDispatcher.forward(req, resp);
+            }
+
         }
         else{
             //TODO redirecionar para pagina de login inexistente

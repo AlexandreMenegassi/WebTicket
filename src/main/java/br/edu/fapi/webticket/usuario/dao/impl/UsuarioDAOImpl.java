@@ -118,6 +118,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			if (resultSet.first()) {
 				resultSet.updateString("Login", usuario.getLogin());
 				resultSet.updateString("Senha", usuario.getSenha());
+				resultSet.updateInt("IdUsuarioDetalhe",usuario.getIdUsuarioDetalhe());
 				resultSet.updateBoolean("Admin",usuario.isAdmin());
 				resultSet.updateBoolean("Operador",usuario.isOperador());
 				resultSet.updateBoolean("Cliente",usuario.isCliente());
@@ -159,6 +160,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		}
 		return null;
 	}
+
 
 
 }
