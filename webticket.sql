@@ -23,7 +23,6 @@ CREATE TABLE `Empresa` (
 
 CREATE TABLE `Usuario` (
     `IdUsuario` int  NOT NULL auto_increment primary key,
-    IdUsuarioDetalhe int,
     IdEmpresa int,
     `Login` varchar(255)  NOT NULL ,
     `Senha` varchar(255)  NOT NULL ,
