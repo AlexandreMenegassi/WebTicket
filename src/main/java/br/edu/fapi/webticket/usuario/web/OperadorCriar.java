@@ -22,8 +22,8 @@ public class OperadorCriar extends HttpServlet {
         UsuarioDAO operadorDAO = new OperadorDAOImpl();
         Usuario operador = new Usuario();
         operador.setLogin(req.getParameter("login"));
-        operador.setSenha(req.getParameter("senha"));
-
+        operador.setSenha("12345");
+        operador.setIdUsuarioDetalhe(0);
 
         try {
             operadorDAO.criarUsuario(operador);

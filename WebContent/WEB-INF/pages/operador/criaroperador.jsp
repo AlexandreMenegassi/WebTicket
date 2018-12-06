@@ -32,9 +32,8 @@
             <input type="text" class="form-control" id="inpLogin" name="login" required>
         </div>
         <div class="form-group">
-            <label for="inpSenha">senha</label>
-            <input type="text" class="form-control" id="inpSenha" name="senha" required>
-        </div>
+            <label >A senha 12345 será gerada para este cliente</label>
+        </div><br>
         <input type="submit" value="criar" class="btn btn-default">
     </form>
 </body>

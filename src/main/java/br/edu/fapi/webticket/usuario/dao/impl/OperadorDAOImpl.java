@@ -11,10 +11,28 @@ public class OperadorDAOImpl extends UsuarioDAOImpl {
 
     @Override
     public Boolean criarUsuario(Usuario usuario) throws SQLException {
-        usuario.setAdmin(false);
-        usuario.setOperador(true);
-        usuario.setCliente(false);
-        return super.criarUsuario(usuario);
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "insert into usuario(Login, Senha, Admin, Operador, Cliente,IdUsuarioDetalhe) values (?,?,?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, usuario.getLogin());
+            preparedStatement.setString(2, usuario.getSenha());
+            preparedStatement.setBoolean(3, usuario.isAdmin());
+            preparedStatement.setBoolean(4, usuario.isOperador());
+            preparedStatement.setBoolean(5, usuario.isCliente());
+            preparedStatement.setInt(6, usuario.getIdUsuarioDetalhe());
+
+
+            // INSERT, UPDATE OU DELETE (executeUpdate())
+            // Resultado é um valor int que indica o número de linhas afetadas.
+            int resultado = preparedStatement.executeUpdate();
+            System.out.println("Registro inserido");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     @Override
