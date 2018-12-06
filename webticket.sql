@@ -30,6 +30,12 @@ CREATE TABLE `Usuario` (
     `Admin` bit NOT NULL ,
     Operador bit NOT NULL ,
     Cliente bit NOT NULL ,
+    `Nome` varchar(100) NOT NULL,
+    `Sobrenome` varchar(100) NOT NULL,
+    `Idade` varchar(100) NOT NULL,
+    `Sexo` varchar(100) NOT NULL,
+    `RG` varchar(100) NOT NULL,
+    `CPF` varchar(100) NOT NULL,
     CONSTRAINT `uc_Usuario_Login` UNIQUE (
         `Login`
     )
