@@ -40,8 +40,7 @@ public class VerificarUsuario extends HttpServlet {
                 cliente.setCPF(CPF);
             String Login = req.getParameter("login");
                 cliente.setLogin(Login);
-            String Senha = req.getParameter("senha");
-                cliente.setSenha(Senha);
+                cliente.setSenha("12345");
 
         boolean User = false;
 

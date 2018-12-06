@@ -78,8 +78,8 @@
                                 <input type="text" name="login"  class="form-control" required >
                             </div>
                             <div class="form-group">
-                                <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Digite uma senha de Acesso </font></font></label>
-                                <input type="text" name="senha"  class="form-control" required >
+                                <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PRIMEIRA SENHA DE ACESSO SERÁ: 12345 </font></font></label>
+
                             </div>
                             <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><font style="vertical-align: inherit;"><font
                                     style="vertical-align: inherit;">Cadastrar</font></font>
