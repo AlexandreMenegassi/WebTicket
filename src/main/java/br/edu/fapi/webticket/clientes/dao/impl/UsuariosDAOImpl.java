@@ -50,14 +50,19 @@ public class UsuariosDAOImpl implements UsuariosDAO {
     public boolean criarUsuarios(ModeloCliente usuario) throws SQLException {
         try (Connection connection = MySqlConnection.abrirConexao()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "insert into clientes(Nome, Sobrenome, Idade, Sexo, RG, CPF) values (?,?,?,?,?,?)",
+                    "insert into usuario(Login, Senha, Admin, Operador, Cliente, Nome, Sobrenome, Idade, Sexo, RG, CPF) values (?,?,?,?,?,?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, usuario.getNome());
-            preparedStatement.setString(2, usuario.getSobrenome());
-            preparedStatement.setString(3, usuario.getIdade());
-            preparedStatement.setString(4, usuario.getSexo());
-            preparedStatement.setString(5, usuario.getRG());
-            preparedStatement.setString(6, usuario.getCPF());
+            preparedStatement.setString(1, usuario.getLogin());
+            preparedStatement.setString(2, usuario.getSenha());
+            preparedStatement.setBoolean(3, false);
+            preparedStatement.setBoolean(4, false);
+            preparedStatement.setBoolean(5, false);
+            preparedStatement.setString(6, usuario.getNome());
+            preparedStatement.setString(7, usuario.getSobrenome());
+            preparedStatement.setString(8, usuario.getIdade());
+            preparedStatement.setString(9, usuario.getSexo());
+            preparedStatement.setString(10, usuario.getRG());
+            preparedStatement.setString(11, usuario.getCPF());
 
             int resultado = preparedStatement.executeUpdate();
             System.out.println("Registro inserido");
@@ -69,26 +74,6 @@ public class UsuariosDAOImpl implements UsuariosDAO {
         return false;
     }
 
-    public boolean addLoginSenha(String login, String senha) throws SQLException {
-        try (Connection connection = MySqlConnection.abrirConexao()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(
-                    "insert into usuario(Login, Senha, Admin, Operador, Cliente) values (?,?,?,?,?)",
-                    Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, login);
-            preparedStatement.setString(2, senha);
-            preparedStatement.setInt(3, '0');
-            preparedStatement.setInt(4, '0');
-            preparedStatement.setInt(5, '0');
-
-            int resultado = preparedStatement.executeUpdate();
-            System.out.println("Registro inserido");
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Conexão não estabelecida.");
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
 
     /*
         @Override

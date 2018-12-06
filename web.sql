@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Dez-2018 às 00:21
+-- Generation Time: 06-Dez-2018 às 21:06
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.2.10
 
@@ -42,7 +42,8 @@ CREATE TABLE `empresa` (
 INSERT INTO `empresa` (`IdEmpresa`, `Nome`, `RazaoSocial`, `CNPJ`) VALUES
 (1, 'testegadsfgsdfg', 'teste', 'teste'),
 (2, 'teste1', 'teste1', 'teste1'),
-(3, 'teste1', 'teste1we', 'teste12345');
+(3, 'teste1', 'teste1we', 'teste12345'),
+(4, 'Alexandre', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -126,12 +127,12 @@ CREATE TABLE `usuario` (
   `Admin` bit(1) NOT NULL,
   `Operador` bit(1) NOT NULL,
   `Cliente` bit(1) NOT NULL,
-  `Nome` varchar(100) NOT NULL,
-  `Sobrenome` varchar(100) NOT NULL,
-  `Idade` varchar(100) NOT NULL,
-  `Sexo` varchar(100) NOT NULL,
-  `RG` varchar(100) NOT NULL,
-  `CPF` varchar(100) NOT NULL
+  `Nome` varchar(100) DEFAULT NULL,
+  `Sobrenome` varchar(100) DEFAULT NULL,
+  `Idade` varchar(100) DEFAULT NULL,
+  `Sexo` varchar(100) DEFAULT NULL,
+  `RG` varchar(100) DEFAULT NULL,
+  `CPF` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -143,7 +144,9 @@ INSERT INTO `usuario` (`IdUsuario`, `IdUsuarioDetalhe`, `IdEmpresa`, `Login`, `S
 (2, 1, NULL, 'operador', '1', b'0', b'1', b'0', '', '', '', '', '', ''),
 (3, 1, NULL, 'cliente', '12345', b'0', b'0', b'1', '', '', '', '', '', ''),
 (4, 1, NULL, 'usuario', '1', b'0', b'0', b'0', '', '', '', '', '', ''),
-(9, 0, 1, 'wert', '12345', b'0', b'0', b'1', '', '', '', '', '', '');
+(9, 1, 1, 'wert', '123', b'0', b'0', b'1', '', '', '', '', '', ''),
+(10, 0, 1, 'teste1', '12345', b'0', b'0', b'1', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 0, 3, 'teste12345', '12345', b'0', b'0', b'1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -228,7 +231,7 @@ ALTER TABLE `usuariodetalhe`
 -- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -258,7 +261,7 @@ ALTER TABLE `topicocomentario`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `usuariodetalhe`

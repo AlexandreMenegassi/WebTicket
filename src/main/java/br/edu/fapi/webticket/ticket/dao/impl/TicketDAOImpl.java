@@ -15,7 +15,7 @@ public class TicketDAOImpl implements TicketDAO {
         List<Ticket> tickets = new ArrayList<>();
         try (Connection connection = MySqlConnection.abrirConexao()) {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("select * from Ticket", Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement("select Ticket.*,Usuario.Login from Ticket join Usuario on Ticket.IdUsuario = Usuario.IdUsuario", Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -26,6 +26,7 @@ public class TicketDAOImpl implements TicketDAO {
                 ticket.setDescricao(resultSet.getString("Descricao"));
                 ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
                 ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+                ticket.setUsuarioNome(resultSet.getString("Login"));
 
                 tickets.add(ticket);
             }
@@ -43,7 +44,7 @@ public class TicketDAOImpl implements TicketDAO {
         List<Ticket> tickets = new ArrayList<>();
         try (Connection connection = MySqlConnection.abrirConexao()) {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("select * from Ticket where IdUsuario = " + Id, Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement("select Ticket.*,Usuario.Login from Ticket join Usuario on Ticket.IdUsuario = Usuario.IdUsuario where Ticket.IdUsuario = " + Id, Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -54,6 +55,7 @@ public class TicketDAOImpl implements TicketDAO {
                 ticket.setDescricao(resultSet.getString("Descricao"));
                 ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
                 ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+                ticket.setUsuarioNome(resultSet.getString("Login"));
 
                 tickets.add(ticket);
             }
@@ -68,7 +70,29 @@ public class TicketDAOImpl implements TicketDAO {
 
     @Override
     public Ticket selecionarTicket(int id) throws SQLException {
-        return null;
+        Ticket ticket = null;
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("select Ticket.*,Usuario.Login from Ticket join Usuario on Ticket.IdUsuario = Usuario.IdUsuario where Ticket.IdTicket = ?",
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.first()) {
+                ticket = new Ticket();
+                ticket.setIdTicket(resultSet.getInt("IdTicket"));
+                ticket.setIdUsuario(resultSet.getInt("IdUsuario"));
+                ticket.setTitulo(resultSet.getString("Titulo"));
+                ticket.setDescricao(resultSet.getString("Descricao"));
+                ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
+                ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+                ticket.setUsuarioNome(resultSet.getString("Login"));
+                return ticket;
+            }
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return ticket;
     }
 
     @Override
@@ -106,6 +130,68 @@ public class TicketDAOImpl implements TicketDAO {
 
     @Override
     public boolean editarTicket(Ticket ticket) throws SQLException {
+        try(Connection connection = MySqlConnection.abrirConexao()){
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "update ticket set DataFechamento = ? where IdTicket = "+ ticket.getIdTicket(),
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setTimestamp(1,ticket.getDataFechamento());
+
+            int resultado = preparedStatement.executeUpdate();
+            System.out.println("Registro alterado");
+            return true;
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
+    @Override
+    public List<Ticket> listarTicketsClienteFechado(int Id) throws SQLException {
+        List<Ticket> tickets = new ArrayList<>();
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("select Ticket.*,Usuario.Login from Ticket join Usuario on Ticket.IdUsuario = Usuario.IdUsuario where DataFechamento is not null and Ticket.IdUsuario = " + Id, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Ticket ticket = new Ticket();
+                ticket.setIdTicket(resultSet.getInt("IdTicket"));
+                ticket.setIdUsuario(resultSet.getInt("IdUsuario"));
+                ticket.setTitulo(resultSet.getString("Titulo"));
+                ticket.setDescricao(resultSet.getString("Descricao"));
+                ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
+                ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+                ticket.setUsuarioNome(resultSet.getString("Login"));
+
+                tickets.add(ticket);
+            }
+
+            return tickets;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public boolean reabritTicket(Ticket ticket) throws SQLException {
+        try(Connection connection = MySqlConnection.abrirConexao()){
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "update ticket set DataFechamento = null where IdTicket = "+ ticket.getIdTicket(),
+                    Statement.RETURN_GENERATED_KEYS);
+
+            int resultado = preparedStatement.executeUpdate();
+            System.out.println("Registro alterado");
+            return true;
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 }

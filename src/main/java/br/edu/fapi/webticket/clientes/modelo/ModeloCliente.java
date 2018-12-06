@@ -2,6 +2,11 @@ package br.edu.fapi.webticket.clientes.modelo;
 
 public class ModeloCliente {
 
+    protected String login;
+    protected String senha;
+    protected boolean admin;
+    protected boolean cliente;
+    protected boolean operador;
     protected String Nome;
     protected String Sobrenome;
     protected String Idade;
@@ -96,10 +101,4 @@ public class ModeloCliente {
     public void setOperador(boolean operador) {
         this.operador = operador;
     }
-
-    protected String login;
-    protected String senha;
-    protected boolean admin;
-    protected boolean cliente;
-    protected boolean operador;
 }

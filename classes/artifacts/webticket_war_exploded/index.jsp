@@ -51,12 +51,15 @@
 								</h4>
 								<form action="UsuarioLogar" method="post">
 									<div class="form-group">
-										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Endereço de e-mail</font></font></label>
-										<input type="text" name="login"  class="form-control" placeholder="Email" required>
+										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></label>
+										<input type="text" name="login"  class="form-control" placeholder="Login" required>
 									</div>
 									<div class="form-group">
 										<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Senha</font></font></label>
 										<input type="password" name="senha" class="form-control" placeholder="Password" required>
+									</div>
+									<div style="text-align: right;">
+										<a href="cadastrocliente.jsp"><p>Inscreva-se</p></a>
 									</div>
 									<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"><font style="vertical-align: inherit;"><font
 											style="vertical-align: inherit;">entrar</font></font>

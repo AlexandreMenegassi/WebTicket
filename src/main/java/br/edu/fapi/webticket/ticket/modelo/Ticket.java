@@ -16,6 +16,8 @@ public class Ticket {
     private Timestamp dataCriacao;
     private Timestamp dataFechamento;
 
+    protected String usuarioNome;
+
     public int getIdTicket() {
         return idTicket;
     }
@@ -62,5 +64,13 @@ public class Ticket {
 
     public void setDataFechamento(Timestamp dataFechamento) {
         this.dataFechamento = dataFechamento;
+    }
+
+    public String getUsuarioNome() {
+        return usuarioNome;
+    }
+
+    public void setUsuarioNome(String usuarioNome) {
+        this.usuarioNome = usuarioNome;
     }
 }
