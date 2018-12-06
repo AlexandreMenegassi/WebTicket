@@ -46,9 +46,9 @@
             <td><c:out value="${ticket.dataCriacao}"/></td>
             <td><c:out value="${ticket.dataFechamento}"/></td>
             <td>
-                <form action="" method="get">
-                    <input type="hidden" name="idUsuario" value=""/>
-                    <input class="btn btn-default" type="submit" value="ver detalhes" disabled/>
+                <form action="ticketDetalhe" method="get">
+                    <input type="hidden" name="idTicket" value="${ticket.idTicket}"/>
+                    <input class="btn btn-default" type="submit" value="ver detalhes"/>
                 </form>
             </td>
             <td>

@@ -68,7 +68,28 @@ public class TicketDAOImpl implements TicketDAO {
 
     @Override
     public Ticket selecionarTicket(int id) throws SQLException {
-        return null;
+        Ticket ticket = null;
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from Ticket where IdTicket = ?",
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.first()) {
+                ticket = new Ticket();
+                ticket.setIdTicket(resultSet.getInt("IdTicket"));
+                ticket.setIdUsuario(resultSet.getInt("IdUsuario"));
+                ticket.setTitulo(resultSet.getString("Titulo"));
+                ticket.setDescricao(resultSet.getString("Descricao"));
+                ticket.setDataCriacao(resultSet.getTimestamp("DataCriacao"));
+                ticket.setDataFechamento(resultSet.getTimestamp("DataFechamento"));
+                return ticket;
+            }
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return ticket;
     }
 
     @Override

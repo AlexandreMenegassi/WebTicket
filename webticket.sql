@@ -47,8 +47,7 @@ CREATE TABLE `Ticket` (
 CREATE TABLE `TicketConversa` (
     `IdTicketConversa` int  NOT NULL auto_increment primary key,
     `IdTicket` int   ,
-    `IdUsuarioDetalhe` int   ,
-    `IdOperador` int   ,
+    `IdUsuario` int   ,
     `Conteudo` varchar(255)  NOT NULL ,
     `DataPostagem` date  NOT NULL
 );
@@ -83,10 +82,7 @@ REFERENCES `Usuario` (`IdUsuario`);
 ALTER TABLE `TicketConversa` ADD CONSTRAINT `fk_TicketConversa_IdTicket` FOREIGN KEY(`IdTicket`)
 REFERENCES `Ticket` (`IdTicket`);
 
-ALTER TABLE `TicketConversa` ADD CONSTRAINT `fk_TicketConversa_IdUsuarioDetalhe` FOREIGN KEY(`IdUsuarioDetalhe`)
-REFERENCES `UsuarioDetalhe` (`IdUsuarioDetalhe`);
-
-ALTER TABLE `TicketConversa` ADD CONSTRAINT `fk_TicketConversa_IdUsuario` FOREIGN KEY(`IdOperador`)
+ALTER TABLE `TicketConversa` ADD CONSTRAINT `fk_TicketConversa_IdUsuarioDetalhe` FOREIGN KEY(`IdUsuario`)
 REFERENCES `Usuario` (`IdUsuario`);
 
 ALTER TABLE `Topico` ADD CONSTRAINT `fk_Topico_IdUsuarioDetalhe` FOREIGN KEY(`IdUsuarioDetalhe`)
