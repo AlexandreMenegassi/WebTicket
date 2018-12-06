@@ -58,7 +58,6 @@ public class VerificarUsuario extends HttpServlet {
         else{
             try {
                 userDAO.criarUsuarios(cliente);
-                userDAO.addLoginSenha(cliente.getLogin(),cliente.getSenha());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
