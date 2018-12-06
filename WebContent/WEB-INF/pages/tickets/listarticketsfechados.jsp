@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Listar Tickets</title>
+    <title>Listar Tickets Fechados</title>
     <!-- Styles -->
     <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
     <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
@@ -27,7 +27,7 @@
     <a href="controller?acao=home">Voltar</a>
 </div>
 <hr>
-<a href="/ticketController?acao=criar">Criar Ticket</a>
+
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -37,22 +37,29 @@
         <th>Data da postagem</th>
         <th>Data do fechamento</th>
         <th>Ver detalhes</th>
+        <th>Reabrir</th>
     </tr>
     <tbody>
     <c:forEach var="ticket" items="${tickets}">
         <tr>
-        <td><c:out value="${ticket.titulo}"/></td>
-        <td><c:out value="${ticket.descricao}"/></td>
-        <td><c:out value="${ticket.usuarioNome}"/></td>
-        <td><c:out value="${ticket.dataCriacao}"/></td>
-        <td><c:out value="${ticket.dataFechamento}"/></td>
-        <td>
-            <form action="ticketDetalhe" method="get">
-                <input type="hidden" name="idTicket" value="${ticket.idTicket}"/>
-                <input class="btn btn-default" type="submit" value="ver detalhes"/>
-            </form>
-        </td>
-    </tr>
+            <td><c:out value="${ticket.titulo}"/></td>
+            <td><c:out value="${ticket.descricao}"/></td>
+            <td><c:out value="${ticket.usuarioNome}"/></td>
+            <td><c:out value="${ticket.dataCriacao}"/></td>
+            <td><c:out value="${ticket.dataFechamento}"/></td>
+            <td>
+                <form action="ticketDetalhe" method="get">
+                    <input type="hidden" name="idTicket" value="${ticket.idTicket}"/>
+                    <input class="btn btn-default" type="submit" value="ver detalhes"/>
+                </form>
+            </td>
+            <td>
+                <form action="ticketReabrir" method="get">
+                    <input type="hidden" name="idTicket" value="${ticket.idTicket}"/>
+                    <input class="btn btn-default" type="submit" value="Reabrir"/>
+                </form>
+            </td>
+        </tr>
     </c:forEach>
     </tbody>
 </table>

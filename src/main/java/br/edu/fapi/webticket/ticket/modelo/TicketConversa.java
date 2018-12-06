@@ -3,52 +3,52 @@ package br.edu.fapi.webticket.ticket.modelo;
 import java.sql.Timestamp;
 
 public class TicketConversa {
-    protected int IdTicketConversa;
-    protected int IdTicket;
-    protected int IdUsuario;
-    protected String Conteudo;
-    protected Timestamp DataPostagem;
+    protected int idTicketConversa;
+    protected int idTicket;
+    protected int idUsuario;
+    protected String conteudo;
+    protected Timestamp dataPostagem;
 
     protected String usuarioNome;
 
     public int getIdTicketConversa() {
-        return IdTicketConversa;
+        return idTicketConversa;
     }
 
     public void setIdTicketConversa(int idTicketConversa) {
-        IdTicketConversa = idTicketConversa;
+        this.idTicketConversa = idTicketConversa;
     }
 
     public int getIdTicket() {
-        return IdTicket;
+        return idTicket;
     }
 
     public void setIdTicket(int idTicket) {
-        IdTicket = idTicket;
+        this.idTicket = idTicket;
     }
 
     public int getIdUsuario() {
-        return IdUsuario;
+        return idUsuario;
     }
 
     public void setIdUsuario(int idUsuario) {
-        IdUsuario = idUsuario;
+        this.idUsuario = idUsuario;
     }
 
     public String getConteudo() {
-        return Conteudo;
+        return conteudo;
     }
 
     public void setConteudo(String conteudo) {
-        Conteudo = conteudo;
+        this.conteudo = conteudo;
     }
 
     public Timestamp getDataPostagem() {
-        return DataPostagem;
+        return dataPostagem;
     }
 
     public void setDataPostagem(Timestamp dataPostagem) {
-        DataPostagem = dataPostagem;
+        this.dataPostagem = dataPostagem;
     }
 
     public String getUsuarioNome() {

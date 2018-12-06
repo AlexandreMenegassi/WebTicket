@@ -51,9 +51,10 @@
 
                         <%if(usuario.isCliente()){%>
                         <li class="label">Cliente</li>
-                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Tickets <span class="badge badge-primary">4</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-files"></i> Tickets <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="ticketController?acao=manter">Listar todos os tickets</a></li>
+                                <li><a href="ticketController?acao=manter">Listar os tickets</a></li>
+                                <li><a href="ticketController?acao=fechados">Listar os tickets fechados</a></li>
                             </ul>
                         </li>
                         <li><a href="ticketController?acao=criar"><i class="ti-files"></i> Criar Ticket </a></li>

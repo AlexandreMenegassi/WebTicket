@@ -16,7 +16,7 @@ public class TicketConversaDAOImpl implements TicketConversaDAO {
         List<TicketConversa> ticketConversas = new ArrayList<>();
         try (Connection connection = MySqlConnection.abrirConexao()) {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement(" select TicketConversa.*, Usuario.Login from TicketConversa where IdTicket = " + idTicket +" join Usuario on Usuario.IdUsuario = TicketConversa.IdUsuario;", Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement(" select TicketConversa.*, Usuario.Login from TicketConversa join Usuario on Usuario.IdUsuario = TicketConversa.IdUsuario where IdTicket = " + idTicket, Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -46,6 +46,24 @@ public class TicketConversaDAOImpl implements TicketConversaDAO {
 
     @Override
     public boolean criarTicketConversa(TicketConversa ticketConversa) throws SQLException {
+        try (Connection connection = MySqlConnection.abrirConexao()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "insert into TicketConversa(IdTicket, IdUsuario, Conteudo, DataPostagem) values (?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1,ticketConversa.getIdTicket());
+            preparedStatement.setInt(2,ticketConversa.getIdUsuario());
+            preparedStatement.setString(3,ticketConversa.getConteudo());
+            preparedStatement.setTimestamp(4,ticketConversa.getDataPostagem());
+
+            // INSERT, UPDATE OU DELETE (executeUpdate())
+            // Resultado é um valor int que indica o número de linhas afetadas.
+            int resultado = preparedStatement.executeUpdate();
+            System.out.println("Registro inserido");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 

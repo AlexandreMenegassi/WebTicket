@@ -50,8 +50,23 @@ public class TicketController extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                ;
+
             }
+        }else if("fechados".equals(acao)){
+            HttpSession session = req.getSession(true);
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            List<Ticket> tickets = new ArrayList<>();
+            TicketDAO ticketDAO = new TicketDAOImpl();
+            try {
+                tickets = ticketDAO.listarTicketsClienteFechado(usuario.getIdUsuario());
+                req.setAttribute("tickets",tickets);
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/tickets/listarticketsfechados.jsp");
+                requestDispatcher.forward(req, resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
         }
     }
 }

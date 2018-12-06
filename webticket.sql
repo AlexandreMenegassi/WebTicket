@@ -40,16 +40,16 @@ CREATE TABLE `Ticket` (
     `IdUsuario` int ,
     `Titulo` varchar(255)  NOT NULL ,
     `Descricao` varchar(255)  NOT NULL ,
-    `DataCriacao` date  NOT NULL ,
-    `DataFechamento` date
+    `DataCriacao` TIMESTAMP NOT NULL ,
+    `DataFechamento` TIMESTAMP
 );
 
 CREATE TABLE `TicketConversa` (
     `IdTicketConversa` int  NOT NULL auto_increment primary key,
     `IdTicket` int   ,
     `IdUsuario` int   ,
-    `Conteudo` varchar(255)  NOT NULL ,
-    `DataPostagem` date  NOT NULL
+    `Conteudo` varchar(255) NOT NULL ,
+    `DataPostagem` TIMESTAMP  NOT NULL
 );
 
 CREATE TABLE `Topico` (
@@ -99,7 +99,7 @@ REFERENCES `Usuario` (`IdUsuario`);
 
 INSERT INTO Usuario (Login,Senha,Admin,Operador,Cliente,IdUsuarioDetalhe)
 values
-('admin','12345',1,0,0,1),
-('operador','12345',0,1,0,1),
-('cliente','12345',0,0,1,1),
-('usuario','12345',0,0,0,1);
+('admin','12345',1,0,0,0),
+('operador','12345',0,1,0,0),
+('cliente','12345',0,0,1,0),
+('usuario','12345',0,0,0,0);
